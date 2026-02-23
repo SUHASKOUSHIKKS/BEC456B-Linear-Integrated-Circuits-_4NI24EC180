@@ -85,7 +85,7 @@ Av = − gm (RD || ro)
 
 # Circuit Implementation
 
-![CS Circuit](cs_circuit)
+![CS Circuit](cs_circuit.png)
 
 # Device Parameters (From Datasheet)
 
@@ -186,7 +186,7 @@ Observations:
 
 This helps in selecting proper operating point for amplification.
 
-![DC Sweep](dc_sweep)
+![DC Sweep](dc_sweep.png)
 
 DC sweep analysis was performed by varying the gate voltage (VGS) and observing the variation in drain current (ID).
 
@@ -213,7 +213,7 @@ Observations:
 - Output voltage near mid-supply
 - MOSFET operating in saturation region
 This ensures linear amplification.
-![DC Operating Point](dc_operating_point)
+![DC Operating Point](dc_operating_point.png)
 
 Observed:
 
@@ -241,12 +241,12 @@ Input:
 →→The input waveform is a sinusoidal signal applied at the gate with a small amplitude and DC bias.  
 This represents the excitation signal given to the CS amplifier for amplification.
 
-![Transient Input](transient_input)
+![Transient Input](transient_input.png)
 
 →→The output waveform is amplified compared to the input waveform.  
 The amplitude increase confirms voltage amplification by the CS amplifier.
 
-![Transient Output](transient_output)
+![Transient Output](transient_output.png)
 
 
 →→Both input and output waveforms are plotted together.
@@ -258,7 +258,7 @@ Observations:
 
 This confirms proper working of Common Source amplifier.
 
-![Transient Combined](transient_input_output)
+![Transient Combined](transient_input_output.png)
 
 Measured:
 
@@ -330,7 +330,7 @@ Hence difference between theoretical and simulated gain is expected and validate
 
 ## Without Load Capacitor
 High bandwidth observed due to only MOSFET parasitic capacitances affecting frequency response.
-![AC Without Capacitor](ac_without_capacitor)
+![AC Without Capacitor](ac_without_capacitor.png)
 
 Unity gain not reached within plotted frequency range.
 
@@ -344,7 +344,7 @@ Reason:
 ## With Load Capacitor CL = 10pF
 Bandwidth reduces due to added load capacitance introducing dominant pole.
 
-![AC With Capacitor](ac_with_capacitor)
+![AC With Capacitor](ac_with_capacitor.png)
 
 -3dB gain point:
 
