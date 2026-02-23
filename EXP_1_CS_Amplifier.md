@@ -122,15 +122,15 @@ ID ≤ 555.555 µA
 
 Let us assume:
 
-ID = 200 µA  
+ID = 400 µA  
 
 Power condition check:
 
 P = ID × VDD  
 
-P = 200µA × 1.8  
+P = 400µA × 1.8  
 
-P = 0.36 mW < 1 mW  
+P = 0.72 mW < 1 mW  
 
 Hence satisfied.
 
@@ -146,9 +146,9 @@ Drain resistor:
 
 RD = (VDD − Vout) / ID  
 
-RD = (1.8 − 0.9) / 200µA  
+RD = (1.8 − 0.9) / 400µA  
 
-RD = 4.5 kΩ  
+RD = 2.25 kΩ  
 
 ---
 
@@ -164,13 +164,13 @@ W = (2 ID L) / [μn Cox (VGS − Vth)²]
 
 Substituting values:
 
-W ≈ 1.07 µm  
+W ≈ 6.668 µm  
 
-Theoretically fixed ID of 200µA corresponds to width ≈ 1.07µm.
+Theoretically fixed ID of 400µA corresponds to width ≈ 6.668µm.
 
-Practically, to obtain exact ID ≈ 200µA in simulation, width adjusted to:
+Practically, to obtain exact ID ≈ 400µA in simulation, width adjusted to:
 
-W ≈ 1.534 µm  
+W ≈ 9.088 µm  
 
 If width increases, current increases.  
 If length increases, current decreases because resistance increases.
@@ -202,14 +202,14 @@ This analysis helps in:
 - Understanding device characteristics
 - Selecting a proper DC bias point for amplification
 
-The selected operating point (VGS ≈ 0.9 V, ID ≈ 200 µA) lies in the saturation region, ensuring proper amplifier operation.
+The selected operating point (VGS ≈ 0.9 V, ID ≈ 400 µA) lies in the saturation region, ensuring proper amplifier operation.
 
 # DC Operating Point
 
 DC operating point confirms proper biasing of MOSFET.
 
 Observations:
-- Drain current ≈ 200µA
+- Drain current ≈ 400µA
 - Output voltage near mid-supply
 - MOSFET operating in saturation region
 This ensures linear amplification.
@@ -217,7 +217,7 @@ This ensures linear amplification.
 
 Observed:
 
-ID ≈ 200 µA  
+ID ≈ 400 µA  
 VDS ≈ 0.9 V  
 
 Check saturation:
@@ -236,7 +236,7 @@ Input:
 - Sine wave  
 - Frequency = 1kHz  
 - Amplitude = 10mV  
-- DC bias = 0.9V  
+- DC offset = 0.9V  
 
 →→The input waveform is a sinusoidal signal applied at the gate with a small amplitude and DC bias.  
 This represents the excitation signal given to the CS amplifier for amplification.
@@ -262,25 +262,25 @@ This confirms proper working of Common Source amplifier.
 
 Measured:
 
-Vin(p-p) = 909.564 mV − 890.429 mV  
-Vin(pp) = 19.135 mV  
+Vin(p-p) = 909.631 mV − 890.376 mV  
+Vin(p-p) =  19.255mV 
 
-Vout(p-p) = 924.349 mV − 872.666 mV  
-Vout(p-p) = 51.683 mV  
+Vout(p-p) = 931.818 mV − 867.831 mV  
+Vout(p-p) = 63.987mV  
 
 Practical gain:
 
 Av = Vout / Vin  
 
-Av = 51.683 / 19.135  
+Av = 63.987 / 19.255  
 
-Av = 2.700  
+Av = 3.323  
 
 Gain in dB:
 
-Av(dB) = 20 log(2.7)  
+Av(dB) = 20 log(3.323)  
 
-Av(dB) = 8.627 dB  
+Av(dB) = 10.43 dB  
 
 This is the gain obtained from transient waveform.
 
@@ -294,13 +294,13 @@ Av = −gm RD
 
 gm = 2ID / VOV  
 
-gm = (2 × 200µA) / (0.9 − 0.36)  
+gm = (2 × 400µA) / (0.9 − 0.36)  
 
-gm = 0.74 mS  
+gm = 1.481 mS  
 
-Av = 0.74 × 10⁻³ × 4.5 × 10³  
+Av = 1.481 × 10⁻³ × 2.25 × 10³  
 
-Av = 3.33  
+|Av| = 3.33  
 
 Gain in dB:
 
@@ -336,20 +336,11 @@ Unity gain not reached within plotted frequency range.
 
 Reason:
 
-- amplifier has relatively small gain (~8.63dB)
+- amplifier has relatively small gain (~10.43dB)
 - internal parasitic capacitances create a very high cutoff frequency
 - unity gain frequency lies beyond the simulated sweep range
 
-3dB gain:
-
-≈ 5.63dB  
-
-Cutoff frequency:
-
-≈ 51.65 MHz  
-
 ---
-
 ## With Load Capacitor CL = 10pF
 Bandwidth reduces due to added load capacitance introducing dominant pole.
 
@@ -357,30 +348,30 @@ Bandwidth reduces due to added load capacitance introducing dominant pole.
 
 -3dB gain point:
 
-5.63 dB → normal scale gain = 1.91  
+7.43 dB → normal scale gain = 2.352  
 
 Cutoff frequency:
 
-≈ 4.008 MHz  
+≈ 7.362MHz  
 
 GBW₁:
 
-= 1.91 × 4.008×10⁶  
+= 2.352 × 7.362×10⁶  
 
-= 7.655×10⁶ Hz  
+= 17.315×10⁶ Hz  
 
 Unity gain bandwidth:
 
-≈ 8.81 MHz  
+≈ 23.33 MHz  
 
 GBW₂:
 
-= 1 × 8.81×10⁶  
+= 1 × 23.33×10⁶  
 
-= 8.81×10⁶ Hz  
+= 23.33×10⁶ Hz  
 
-Both GBW values are approximately equal.
-The slight difference is due to non-ideal multi-pole behavior.
+
+The difference is due to non-ideal multi-pole behavior.
 Load capacitor introduces dominant pole:
 fp = 1 / (2π (RD || ro) CL)
 
@@ -410,14 +401,16 @@ External CL further reduces bandwidth significantly.
 Without capacitor:
 
 Only parasitic capacitances determine cutoff → high bandwidth.
+Unity gain not reached within simulation range
+Parasitic capacitances dominate response
 
 With capacitor:
 
 External CL dominates → pole shifts to lower frequency → bandwidth reduces.
 
-Gain × Bandwidth approximately constant.
+Gain × Bandwidth analyse.
 
-Small variation due to:
+ variation due to:
 
 - Parasitic capacitances  
 - ro effect  
@@ -428,13 +421,12 @@ Small variation due to:
 
 # Summary
 
-- Power constraint satisfied (0.36 mW < 1 mW)
+- Power constraint satisfied (0.72 mW < 1 mW)
 - MOSFET operates in saturation region
-- Practical gain ≈ 8.63 dB
+- Practical gain ≈ 10.43 dB
 - Theoretical gain ≈ 10.44 dB
 - Difference due to non-ideal MOSFET behavior
-- Bandwidth without capacitor = 51.65 MHz
-- Bandwidth with 10 pF = 4.008 MHz
+- Bandwidth with 10 pF = 23.33 MHz
 - Gain–bandwidth tradeoff verified
 ---
 
