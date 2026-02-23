@@ -434,8 +434,8 @@ Gain × Bandwidth analyse.
 
 - Practical gain lower due to ro and parasitic effects  
 - Load capacitor reduces bandwidth significantly  
-- observed gainbandwidth product trade off 
-- theoretical,prqactical gain almost same and matched 
+- observed gain bandwidth product trade off 
+- theoretical,practical gain almost same and matched 
 
 ---
 
