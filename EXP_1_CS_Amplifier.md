@@ -427,7 +427,7 @@ Gain × Bandwidth analyse.
 - Theoretical gain ≈ 10.44 dB
 - Difference due to non-ideal MOSFET behavior
 - Bandwidth with 10 pF = 23.33 MHz
-- Gain–bandwidth tradeoff verified
+- Gain–bandwidth tradeoff verified.
 ---
 
 # Inference
