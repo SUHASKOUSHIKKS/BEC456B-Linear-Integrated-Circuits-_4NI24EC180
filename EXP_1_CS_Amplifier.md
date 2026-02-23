@@ -434,8 +434,8 @@ Gain × Bandwidth analyse.
 
 - Practical gain lower due to ro and parasitic effects  
 - Load capacitor reduces bandwidth significantly  
-- Unity gain bandwidth approximately equals 3dB gain-bandwidth product  
-- Frequency behaviour matches theoretical amplifier characteristics  
+- observed gainbandwidth product trade off 
+- theoretical,prqactical gain almost same and matched 
 
 ---
 
