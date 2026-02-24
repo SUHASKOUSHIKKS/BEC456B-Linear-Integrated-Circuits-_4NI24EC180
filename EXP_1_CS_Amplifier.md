@@ -89,7 +89,7 @@ Av = − gm (RD || ro)
 
 # Device Parameters (From Datasheet)
 
-Threshold voltage: Vth = 0.36 V  
+Threshold voltage: VTH = 0.36 V  
 
 Oxide thickness: tox = 4.1 × 10⁻⁹ m  
 
@@ -156,11 +156,11 @@ RD = 2.25 kΩ
 
 Using MOSFET equation:
 
-ID = (1/2) μn Cox (W/L) (VGS − Vth)²  
+ID = (1/2) μn Cox (W/L) (VGS − VTH)²  
 
 Rearranging:
 
-W = (2 ID L) / [μn Cox (VGS − Vth)²]
+W = (2 ID L) / [μn Cox (VGS − VTH)²]
 
 Substituting values:
 
@@ -222,8 +222,8 @@ VDS ≈ 0.9 V
 
 Check saturation:
 
-VGS > Vth  
-VDS ≥ VGS − Vth  
+VGS > VTH  
+VDS ≥ VGS − VTH  
 
 Condition satisfied → MOSFET in saturation.
 
@@ -274,7 +274,7 @@ Av = Vout / Vin
 
 Av = 63.987 / 19.255  
 
-Av = 3.323  
+Av = 3.323 mV/mV 
 
 Gain in dB:
 
@@ -292,7 +292,7 @@ Theoretical gain:
 
 Av = −gm RD  
 
-gm = 2ID / VOV  
+gm = 2Id / VOV  
 
 gm = (2 × 400µA) / (0.9 − 0.36)  
 
