@@ -1,6 +1,12 @@
 ## About Me
 
-I am Suhas Koushik, an engineering student with strong interest in analog electronics, circuit design, VLSI concepts, and simulation tools like LTspice. I actively work on understanding practical circuit behavior through laboratory experiments, analysis, and documentation.
+## About Me
+
+I am Suhas Koushik, an engineering student with a strong interest in analog electronics, circuit design, VLSI concepts, and embedded systems. I actively work on understanding real-time circuit behavior through simulations, laboratory experiments, and technical analysis using tools like LTspice and digital design environments.
+
+My learning approach focuses on combining theoretical knowledge with practical implementation. I regularly perform circuit simulations, analyze waveforms, study device characteristics, and document results in a structured and technical format. I am particularly interested in Linear Integrated Circuits, transistor-based design, and electronic system development.
+
+Through my academic work and lab experiments, I aim to strengthen my fundamentals in electronics, improve problem-solving skills, and build a solid technical portfolio. I maintain this repository to document my experiments, showcase my practical learning, and create a reference for future projects, research, and career opportunities in core electronics and VLSI domains.
 
 ## About this Repository
 
