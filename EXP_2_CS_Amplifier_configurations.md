@@ -1,6 +1,6 @@
 #  Linear Integrated Circuits Laboratory  
 
-## Experiment 2:Common Source Amplifier -CONFIGURSTIONS(TSMC 180nm)
+## Experiment 2:Common Source Amplifier -CONFIGURATIONS(TSMC 180nm)
 
 **Name:** Suhas Koushik K S  
 **USN:** 4NI24EC180  
