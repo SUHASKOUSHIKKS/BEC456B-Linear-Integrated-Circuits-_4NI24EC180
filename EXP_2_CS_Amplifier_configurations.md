@@ -94,22 +94,36 @@ Concept:
 Voltage Gain:
 Av = -gm1 * (ro1 || ro2)
 --------------------------------------------------
-## 4.Device Parameters (From Datasheet)
+## 4.Device Parameters(From Datasheet)
 
 Technology      : TSMC 180nm
+
 Supply Voltage  : VDD = 1.8V
+
 Target Drain Current (ID) : 200 µA
+
 Overdrive Voltage (Vov)   : 0.25 V
+
 Threshold Voltage (VTH NMOS)  : 0.36 V
+
 threshold Voltage (VTH PMOS)  :-0.39 V
+
 Channel Length (L)        : 560 nm
-Oxide thickness: tox = 4.1 × 10⁻⁹ m  
-Electron mobility: μn = 273.809 × 10⁻⁴ m²/Vs  
-Oxide permittivity: εox = εr ε0 = 8.854 × 10⁻¹² × 3.9  
-εox = 3.45 × 10⁻¹¹  
+
+Oxide thickness: tox = 4.1 × 10⁻⁹ m 
+
+Electron mobility NMOS: μn = 273.809 × 10⁻⁴ m²/Vs 
+
+Electron mobility PMOS: μn = 115.68 × 10⁻⁴ m²/Vs 
+
+Oxide permittivity: εox = εr ε0 = 8.854 × 10⁻¹² × 4  
+εox = 3.54 × 10⁻¹¹  
+
 Oxide capacitance: Cox = εox / tox  
-Cox = (3.45 × 10⁻¹¹) / (4.1 × 10⁻⁹)  
-Cox = 8.414 mF/m²  
+
+Cox = (3.54 × 10⁻¹¹) / (4.1 × 10⁻⁹) 
+
+Cox = 8.634 mF/m²  
 -----------------------------------------------------------
 ## 6. OPERATING CONDITIONS FOR SATURATION
 
@@ -128,6 +142,84 @@ gm = 2ID / Vov
 Output Resistance:
 ro = 1 / (λID)
 -----------------------------------------------------------------
+# Width Calculation Using Physical Parameters
+
+------------------------------------------------------------
+## Process Transconductance Parameters
+(calculated using Device Parameters(From Datasheet))
+μnCox = μn × Cox  
+
+μnCox = 0.0273809 × 8.634 × 10⁻3  
+
+μnCox = 2.363 × 10⁻4 A/V²  
+
+μnCox ≈ 236 µA/V²  
+
+------------------------------------------------------------
+
+μpCox = μp × Cox  
+
+μpCox = 0.011568 × 8.634 × 10⁻3  
+
+μpCox = 9.99 × 10⁻5 A/V²  
+
+μpCox ≈ 100 µA/V²  
+
+------------------------------------------------------------
+
+## Step 3: Width Calculation
+(calculated using Device Parameters(From Datasheet))
+
+Using saturation equation:
+
+ID = (1/2) μCox (W/L) (Vov)^2  
+
+Rearranging:
+
+W = (2 ID L) / [μCox (Vov)^2]
+
+------------------------------------------------------------
+
+### NMOS Width
+
+Wn = (2 × 200×10⁻6 × 560×10⁻9)  
+     / [2.363×10⁻4 × (0.25)^2]
+
+Wn = (2.24 × 10⁻10) / (1.477 × 10⁻5)
+
+Wn = 1.516 × 10⁻5 m  
+
+Wn = 15.16 µm  
+
+------------------------------------------------------------
+
+### PMOS Width
+
+Wp = (2 × 200×10⁻6 × 560×10⁻9)  
+     / [9.99×10⁻5 × (0.25)^2]
+
+Wp = (2.24 × 10⁻10) / (6.24 × 10⁻6)
+
+Wp = 3.59 × 10⁻5 m  
+
+Wp = 35.9 µm  
+
+------------------------------------------------------------
+
+## Final Calculated Dimensions
+
+NMOS  : W/L = 15.16µm / 0.56µm  
+PMOS  : W/L = 35.9µm / 0.56µm  
+
+------------------------------------------------------------
+
+Observation:
+
+• Since μn > μp, NMOS requires smaller width.  
+• PMOS width is approximately 2.3× NMOS width.  
+• These values theoretically give ID ≈ 200 µA (without λ effect).  
+
+------------------------------------------------------------
 
 
 
