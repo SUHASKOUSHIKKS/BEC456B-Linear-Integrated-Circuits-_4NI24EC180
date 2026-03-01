@@ -860,7 +860,7 @@ Hence, a small variation (few tenths of dB) is expected.
 
 ### Circuit Implementation in LTspice
 
-![Circuit 2C](circuit_2c.png)
+![Circuit 2C](circuit2c.png)
 
 ## DC Analysis – Circuit 2C
 ## Bias Calculation – Circuit 2C  
