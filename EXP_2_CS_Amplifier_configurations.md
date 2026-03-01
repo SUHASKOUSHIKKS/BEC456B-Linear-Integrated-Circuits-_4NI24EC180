@@ -140,9 +140,10 @@ Transconductance:
 gm = 2ID / Vov
 
 Output Resistance:
+
 ro = 1 / (λID)
 -----------------------------------------------------------------
-##7.Width Calculation Using Physical Parameters
+## 7.Width Calculation Using Physical Parameters
 
 ------------------------------------------------------------
 ## Process Transconductance Parameters
@@ -432,8 +433,6 @@ keeping the transistor in saturation region.
 
 ------------------------------------------------------------
 
-📌 Insert Image Below:
-
 ![Transient Input](2at_input.png)
 
 : Input Waveform Applied at Gate
@@ -449,8 +448,6 @@ Since this is a Common Source amplifier:
 • Signal is amplified around DC bias point (≈ 1.1 V)
 
 ------------------------------------------------------------
-
-📌 Insert Image Below:
 
 ![Transient Output](2at_output.png)
 
