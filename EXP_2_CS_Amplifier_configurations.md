@@ -94,29 +94,21 @@ Concept:
 Voltage Gain:
 Av = -gm1 * (ro1 || ro2)
 --------------------------------------------------
-## 4. DESIGN REQUIREMENTS
+## 4.Device Parameters (From Datasheet)
 
 Technology      : TSMC 180nm
 Supply Voltage  : VDD = 1.8V
 Target Drain Current (ID) : 200 µA
 Overdrive Voltage (Vov)   : 0.25 V
-Threshold Voltage (Vthn)  : 0.366 V
-Threshold Voltage (Vthp)  : -0.39 V
+Threshold Voltage (Vthn)  : 0.36 V
 Channel Length (L)        : 560 nm
-
 
 Objective:
 To bias all MOSFETs in saturation region and obtain required voltage gain.
 
 ------------------------------------------------------------
 
-## 5. ASSUMPTIONS
 
-1. All MOSFETs operate in saturation region.
-2. Body effect is neglected.
-3. Channel length modulation is considered (λ ≠ 0).
-4. Temperature variation is neglected.
-5. Small signal analysis is performed around DC operating point.
 
 ------------------------------------------------------------
 
