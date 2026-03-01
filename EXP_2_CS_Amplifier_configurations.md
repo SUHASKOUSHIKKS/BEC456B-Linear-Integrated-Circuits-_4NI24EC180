@@ -100,18 +100,17 @@ Technology      : TSMC 180nm
 Supply Voltage  : VDD = 1.8V
 Target Drain Current (ID) : 200 µA
 Overdrive Voltage (Vov)   : 0.25 V
-Threshold Voltage (Vthn)  : 0.36 V
+Threshold Voltage (VTH NMOS)  : 0.36 V
+threshold Voltage (VTH PMOS)  :-0.39 V
 Channel Length (L)        : 560 nm
-
-Objective:
-To bias all MOSFETs in saturation region and obtain required voltage gain.
-
-------------------------------------------------------------
-
-
-
-------------------------------------------------------------
-
+Oxide thickness: tox = 4.1 × 10⁻⁹ m  
+Electron mobility: μn = 273.809 × 10⁻⁴ m²/Vs  
+Oxide permittivity: εox = εr ε0 = 8.854 × 10⁻¹² × 3.9  
+εox = 3.45 × 10⁻¹¹  
+Oxide capacitance: Cox = εox / tox  
+Cox = (3.45 × 10⁻¹¹) / (4.1 × 10⁻⁹)  
+Cox = 8.414 mF/m²  
+-----------------------------------------------------------
 ## 6. OPERATING CONDITIONS FOR SATURATION
 
 For NMOS:
@@ -128,6 +127,8 @@ gm = 2ID / Vov
 
 Output Resistance:
 ro = 1 / (λID)
+-----------------------------------------------------------------
+
 
 
 
