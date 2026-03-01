@@ -581,7 +581,7 @@ and simulation results is expected.
 -----------------------------------------------------------------------------------
 ### Circuit Implementation in LTspice
 
-![Circuit 2B](circuit_2b.png)
+![Circuit 2B](circuit2b.png)
 
 ## DC Analysis – Circuit 2B (Cascode)
 
