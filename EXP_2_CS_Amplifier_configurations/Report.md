@@ -246,7 +246,8 @@ for ID = 200 µA with maximum symmetric output swing.
 ----------------------------------------------------------
 Circuit Implementation in LTspice
 -----------------------------------
-![Circuit 2A](circuit2a.png)
+![Circuit 2A]<img width="676" height="802" alt="circuit2a" src="https://github.com/user-attachments/assets/13db833e-5bea-4692-af30-98705d6e05a8" />
+
 ### 9. DC Analysis 
 
  DC BIAS CALCULATION – CIRCUIT A  
@@ -383,7 +384,8 @@ ID   = 200 µA
 RS   = 1 kΩ  
 
 ------------------------------------------------------------
-![operating point - 2A](circuit2aop.png)
+![operating point - 2A]<img width="720" height="519" alt="circuit2aop" src="https://github.com/user-attachments/assets/1a17bf43-5d25-4251-b6f2-70671e00f70c" />
+
 ###  Width Selection for Circuit 2A
 
 The MOSFET widths were calculated earlier using the 
@@ -446,7 +448,8 @@ keeping the transistor in saturation region.
 
 ------------------------------------------------------------
 
-![Transient Input](2at_input.png)
+![Transient Input]<img width="1919" height="858" alt="2at_input" src="https://github.com/user-attachments/assets/5be9f8d1-8683-4d56-a79a-cf8d5859f77a" />
+
 
 : Input Waveform Applied at Gate
 
@@ -462,7 +465,8 @@ Since this is a Common Source amplifier:
 
 ------------------------------------------------------------
 
-![Transient Output](2at_output.png)
+![Transient Output]<img width="1919" height="861" alt="2at_output" src="https://github.com/user-attachments/assets/2d637dec-8348-4023-a200-dbd4c395d076" />
+
 
 : Output Waveform at Drain
 
@@ -470,7 +474,8 @@ Since this is a Common Source amplifier:
 
 Both input and output waveforms plotted together:
 
-![Transient Combined](2at_combined.png)
+![Transient Combined]<img width="1919" height="844" alt="2at_combined" src="https://github.com/user-attachments/assets/6118177b-885e-418a-9325-dd935be3f2ad" />
+
 
 : Input vs Output Waveforms
 
@@ -524,7 +529,8 @@ Input AC magnitude = 1 V
 
 ------------------------------------------------------------
 
-![AC Gain Plot](2aac_gain.png)
+![AC Gain Plot]<img width="1917" height="867" alt="2aac_gain" src="https://github.com/user-attachments/assets/f8bbe4af-05e6-4259-9244-22ce99d99c7f" />
+
 
 Figure: AC Gain (Magnitude vs Frequency)
 
@@ -581,7 +587,8 @@ and simulation results is expected.
 -----------------------------------------------------------------------------------
 ### Circuit Implementation in LTspice
 
-![Circuit 2B](circuit2b.png)
+![Circuit 2B]<img width="783" height="821" alt="circuit2b" src="https://github.com/user-attachments/assets/0e2746e3-761b-4605-a284-921b31f4f046" />
+
 
 ## DC Analysis – Circuit 2B (Cascode)
 
@@ -679,7 +686,8 @@ proper cascode operation.
 
 ###  LTspice Operating Point
 
-![operating point - 2B](circuit2bop.png)
+![operating point - 2B]<img width="835" height="578" alt="circuit2bop" src="https://github.com/user-attachments/assets/7b9cb4ec-1bba-4ac9-be79-6ab2e4a80bea" />
+
 ###  Width Selection for Circuit 2B
 
 The MOSFET widths were calculated earlier using the 
@@ -728,19 +736,22 @@ Vin = SINE(0.916 10m 1k)
 
 📌 Input Waveform
 
-![Transient Input 2B](2bt_input.png)
+![Transient Input 2B]<img width="1915" height="847" alt="2bt_input" src="https://github.com/user-attachments/assets/9f5994aa-bba8-4fa2-8c64-17b4ecc44ffe" />
+
 
 ------------------------------------------------------------
 
 📌 Output Waveform
 
-![Transient Output 2B](2bt_output.png)
+![Transient Output 2B]<img width="1919" height="859" alt="2bt_output" src="https://github.com/user-attachments/assets/e5c89cb9-748f-4cc0-8da3-07edfa0bab5b" />
+
 
 ------------------------------------------------------------
 
 📌 Input & Output (Combined)
 
-![Transient Combined 2B](2bt_combined.png)
+![Transient Combined 2B]<img width="1919" height="854" alt="2bt_combined" src="https://github.com/user-attachments/assets/d4b035b5-e7f6-4096-8a32-4558cf469a95" />
+
 
 ------------------------------------------------------------
 
@@ -792,7 +803,8 @@ Input AC magnitude = 1 V
 
 ------------------------------------------------------------
 
-![AC Gain Plot](2bac_gain.png)
+![AC Gain Plot]<img width="1915" height="848" alt="2bac_gain" src="https://github.com/user-attachments/assets/eb71ebf0-3b06-49f0-aa7c-752a2d80bcfd" />
+
 
 Figure: AC Gain (Magnitude vs Frequency)
 
@@ -860,7 +872,8 @@ Hence, a small variation (few tenths of dB) is expected.
 
 ### Circuit Implementation in LTspice
 
-![Circuit 2C](circuit2c.png)
+![Circuit 2C]<img width="759" height="850" alt="circuit2c" src="https://github.com/user-attachments/assets/f8919fea-a198-4e16-bd7e-c94ccda1caae" />
+
 
 ## DC Analysis – Circuit 2C
 ## Bias Calculation – Circuit 2C  
@@ -962,7 +975,8 @@ Hence source voltage is not assumed.
 It is fixed by the diode-connected NMOS bias condition.
 --------------------------------------------------------------
 ###  LTspice Operating Point
-![operating point - 2C](circuit2cop.png)
+![operating point - 2C]<img width="605" height="541" alt="circuit2cop" src="https://github.com/user-attachments/assets/4974f15c-eb00-422d-be8b-91ca110c9c50" />
+
 ###  Width Selection for Circuit A
 
 The MOSFET widths were calculated earlier using the 
@@ -1011,19 +1025,22 @@ Vin = SINE(1.22 10m 1k)
 
 📌 Input Waveform
 
-![Transient Input 2C](2ct_input.png)
+![Transient Input 2C]<img width="1919" height="861" alt="2ct_input" src="https://github.com/user-attachments/assets/488921a3-53c6-42f0-b3b1-63ef0d9aa6ec" />
+
 
 ------------------------------------------------------------
 
 📌 Output Waveform
 
-![Transient Output 2C](2ct_output.png)
+![Transient Output 2C]<img width="1919" height="857" alt="2ct_output" src="https://github.com/user-attachments/assets/fdd3775a-909a-4a35-aa28-f4aa44f14767" />
+
 
 ------------------------------------------------------------
 
 📌 Input & Output (Combined)
 
-![Transient Combined 2B](2ct_combined.png)
+![Transient Combined 2B]<img width="1909" height="858" alt="2ct_combined" src="https://github.com/user-attachments/assets/feda64ee-1a11-4c39-af94-20888a61345f" />
+
 
 ------------------------------------------------------------
 Observation:
@@ -1072,7 +1089,8 @@ Input AC magnitude = 1 V
 
 ------------------------------------------------------------
 
-![AC Gain Plot](2cac_gain.png)
+![AC Gain Plot]<img width="1917" height="862" alt="2cac_gain" src="https://github.com/user-attachments/assets/a3375b34-a0da-4127-876e-fd4659fe7594" />
+
 
 Figure: AC Gain (Magnitude vs Frequency)
 
