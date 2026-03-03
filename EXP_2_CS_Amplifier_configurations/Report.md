@@ -1,4 +1,4 @@
-#  Linear Integrated Circuits Laboratory  
+#  Linear Integrated Circuits Laboratory 
 
 ## Experiment 2:Common Source Amplifier -CONFIGURATIONS(TSMC 180nm)
 
