@@ -85,7 +85,8 @@ Av = − gm (RD || ro)
 
 # Circuit Implementation
 
-![CS Circuit](cs_circuit.png)
+![CS Circuit]<img width="1463" height="810" alt="cs_circuit" src="https://github.com/user-attachments/assets/289ff184-ca6e-43b0-81e9-73eb6678f98e" />
+
 
 # Device Parameters (From Datasheet)
 
@@ -186,7 +187,8 @@ Observations:
 
 This helps in selecting proper operating point for amplification.
 
-![DC Sweep](dc_sweep.png)
+![DC Sweep]<img width="1910" height="894" alt="dc_sweep" src="https://github.com/user-attachments/assets/4094a22b-ba96-48b0-badd-4697656e1059" />
+
 
 DC sweep analysis was performed by varying the gate voltage (VGS) and observing the variation in drain current (ID).
 
@@ -213,7 +215,8 @@ Observations:
 - Output voltage near mid-supply
 - MOSFET operating in saturation region
 This ensures linear amplification.
-![DC Operating Point](dc_operating_point.png)
+![DC Operating Point]<img width="846" height="654" alt="dc_operating_point" src="https://github.com/user-attachments/assets/4ba23ed1-e866-4e3e-a4a4-5aa4730c8365" />
+
 
 Observed:
 
@@ -241,12 +244,14 @@ Input:
 →→The input waveform is a sinusoidal signal applied at the gate with a small amplitude and DC bias.  
 This represents the excitation signal given to the CS amplifier for amplification.
 
-![Transient Input](transient_input.png)
+![Transient Input]<img width="1912" height="851" alt="transient_input" src="https://github.com/user-attachments/assets/4d7e6695-309a-40c3-b9a4-4d8a6e620e4c" />
+
 
 →→The output waveform is amplified compared to the input waveform.  
 The amplitude increase confirms voltage amplification by the CS amplifier.
 
-![Transient Output](transient_output.png)
+![Transient Output]<img width="1917" height="856" alt="transient_output" src="https://github.com/user-attachments/assets/8055bf1d-0a3c-465d-96cc-b718415d7234" />
+
 
 
 →→Both input and output waveforms are plotted together.
@@ -258,7 +263,8 @@ Observations:
 
 This confirms proper working of Common Source amplifier.
 
-![Transient Combined](transient_input_output.png)
+![Transient Combined]<img width="1916" height="855" alt="transient_input_output" src="https://github.com/user-attachments/assets/a6eed51e-0fc2-487a-8a6a-4bf41a0bdb31" />
+
 
 Measured:
 
@@ -330,7 +336,8 @@ Hence difference between theoretical and simulated gain is expected and validate
 
 ## Without Load Capacitor
 High bandwidth observed due to only MOSFET parasitic capacitances affecting frequency response.
-![AC Without Capacitor](ac_without_capacitor.png)
+![AC Without Capacitor]<img width="1913" height="848" alt="ac_without_capacitor" src="https://github.com/user-attachments/assets/ed9ade2f-c294-4d8f-b76b-7b7a2ffeee64" />
+
 
 Unity gain not reached within plotted frequency range.
 
@@ -344,7 +351,8 @@ Reason:
 ## With Load Capacitor CL = 10pF
 Bandwidth reduces due to added load capacitance introducing dominant pole.
 
-![AC With Capacitor](ac_with_capacitor.png)
+![AC With Capacitor]<img width="1919" height="847" alt="ac_with_capacitor" src="https://github.com/user-attachments/assets/d43c4d0f-3785-41d1-a2e5-b2ead3f92fd8" />
+
 
 -3dB gain point:
 
