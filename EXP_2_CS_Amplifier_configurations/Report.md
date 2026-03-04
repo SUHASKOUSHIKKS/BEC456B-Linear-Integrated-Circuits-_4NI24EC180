@@ -381,205 +381,212 @@ channel-length modulation.
 
 ![Circuit 2B]<img width="783" height="821" alt="circuit2b" src="https://github.com/user-attachments/assets/0e2746e3-761b-4605-a284-921b31f4f046" />
 
+# DC Analysis – Circuit 2B (Cascode Amplifier)
 
-## DC Analysis – Circuit 2B (Cascode)
+## Design Conditions
 
-Given:
+| VDD | ID | VTHn | VTHp |
+|----|----|----|----|
+| 1.8 V | 200 µA | 0.36 V | −0.39 V |
 
-ID = 200 µA     Vov = 0.25 V  
-VTHn = 0.36 V   VTHp = -0.39 V  
-VDD = 1.8 V  
+---
 
-------------------------------------------------------------
+# Voltage Limits for Proper Operation
 
-### M2 (Bottom NMOS)
+| Parameter | Minimum | Maximum | Reason |
+|-----------|---------|---------|--------|
+| VGS (NMOS) | ≥ VTH = 0.36 V | ≤ VDD = 1.8 V | Channel formation |
+| VDS (NMOS) | ≥ VOV | ≤ VDD | Saturation condition |
+| VSG (PMOS) | ≥ |VTHp| = 0.39 V | ≤ VDD | PMOS conduction |
+| VSD (PMOS) | ≥ VOV | ≤ VDD | Saturation condition |
 
-VGS2 = Vth + Vov  
-VGS2 = 0.36 + 0.25 = 0.61 V  
+---
 
-Gate = 0.616 V  
+# Overdrive Voltage Determination
 
-VS2 = 0 V  
-VD2 = VS1 ≈ 0.61 V  
+| Calculation | Result |
+|-------------|--------|
+| VGS = VTH + VOV = 0.36 + 0.25 | **0.61 V** |
+| VOV = VGS − VTH = 0.61 − 0.36 | **0.25 V** |
 
-✔ M2 in saturation (VDS2 ≈ 0.61 > 0.25)
+### Allowable Range
 
-------------------------------------------------------------
+| Minimum VOV | Maximum VOV |
+|-------------|-------------|
+| > 0 | < VDS |
 
-### M1 (Upper NMOS – Cascode)
+Since the drain-source voltage will be near
 
-Gate (DC) = 0.916 V  
+VDS ≈ VDD/2 = **0.9 V**
 
-VS1 = 0.61 V  
+the allowable range becomes
 
-VGS1 = 0.916 − 0.61  
-VGS1 = 0.306 V  
+0 < VOV < 0.9 V
 
-Simulation adjusts bias so ID ≈ 200 µA.
-Vout=0.9+0.3=1.2V
-VDS1 = Vout − VS1  
-VDS1 = 1.2 − 0.61  
-VDS1 = 0.59 V  
+The obtained value
 
-✔ M1 in saturation (0.59 > 0.25)
+**VOV = 0.25 V**
 
-------------------------------------------------------------
+lies well within this range.
 
-### PMOS Load (M3)
+### Justification
 
-Gate = 1.16 V  
-Source = 1.8 V  
+A moderate overdrive voltage
 
-VSG3 = 1.8 − 1.16  
-VSG3 = 0.64 V  
+• provides sufficient transconductance  
+• keeps current stable  
+• leaves headroom for signal swing
 
-VSD3 = 1.8 − 1.2  
-VSD3 = 0.6 V  
+---
 
-✔ PMOS in saturation (0.6 > 0.25)
+# Intermediate Node Voltage (VS1)
 
-------------------------------------------------------------
+In a cascode amplifier, the drain of the lower transistor becomes the
+source of the upper transistor.
 
-Final DC Voltages:
+To keep the **lower NMOS (M2) in saturation**
 
-VS2 = 0 V  
-VS1 = 0.61 V  
-Vout = 1.2 V  
+VDS2 ≥ VOV
 
-All transistors operate in saturation.
--------
-### Reason for Choosing Higher Source Voltage in Cascode
+Since
 
-In a cascode amplifier, the lower NMOS acts like an active
-source resistor. It raises the source voltage of the upper
-NMOS so that both transistors remain in saturation.
+VS2 = 0
 
-For saturation condition:
+| Calculation | Result |
+|-------------|--------|
+| VDS2 = VD2 − VS2 = VS1 − 0 | VS1 |
+| Required VDS2 ≥ VOV | ≥ 0.25 V |
 
-VDS ≥ Vov
+Thus
 
-If VS1 = 0.2 V,
+| VS1 Condition | Result |
+|---------------|--------|
+| VS1 ≥ VOV | VS1 ≥ 0.25 V |
 
-then VDS2 = 0.2 V < 0.25 V  
+Choosing
 
-so the lower NMOS enters triode region (not acceptable).
+VS1 ≈ **0.3 V**
 
-If VS1 ≥ 0.3 V (greater than Vov),
+satisfies the saturation condition.
 
-then VDS2 ≥ 0.25 V  
+### Justification
 
-so both NMOS devices remain in saturation.
+| Reason | Explanation |
+|------|-------------|
+| VS1 > VOV | keeps lower NMOS in saturation |
+| VS1 << VDD | preserves voltage headroom |
+| Stable bias | allows correct cascode operation |
 
-Hence, 0.2 V does not work, while 0.3 V or higher ensures
+---
 
-proper cascode operation.
+# Output Voltage Selection
 
----------------
+For maximum signal swing
+
+VDS ≈ VDD / 2
+
+| Calculation | Result |
+|-------------|--------|
+| VDS = 1.8 / 2 | **0.9 V** |
+
+Output node voltage
+
+| Calculation | Result |
+|-------------|--------|
+| Vout = VDS + VS1 = 0.9 + 0.3 | **1.2 V** |
+
+---
+
+# Saturation Verification
+
+| Device | Condition | Result |
+|------|-----------|--------|
+| M2 (NMOS) | VDS2 ≥ VOV | 0.3 ≥ 0.25 ✔ |
+| M1 (NMOS) | VDS1 ≥ VOV | 0.9 ≥ 0.25 ✔ |
+| M3 (PMOS) | VSD ≥ VOV | 0.6 ≥ 0.25 ✔ |
+
+All MOSFETs operate in **saturation region**.
+
+---
+
+# Final DC Operating Point
+
+| VS2 | VS1 | Vout | ID | VOV |
+|----|----|----|----|----|
+| 0 V | 0.3 V | 1.2 V | 200 µA | 0.25 V |
 
 ###  LTspice Operating Point
 
 ![operating point - 2B]<img width="835" height="578" alt="circuit2bop" src="https://github.com/user-attachments/assets/7b9cb4ec-1bba-4ac9-be79-6ab2e4a80bea" />
+## Width Selection – Circuit 2B
 
-###  Width Selection for Circuit 2B
+The transistor widths were initially calculated using the square-law
+saturation current equation to obtain **ID ≈ 200 µA**.
 
-The MOSFET widths were calculated earlier using the 
-square-law saturation equation to obtain ID = 200 µA.
+| Device | Calculated Width | Practical Width |
+|------|------|------|
+| M1 (NMOS – Cascode) | 15.16 µm | 26.88 µm |
+| M2 (NMOS – Input) | 15.16 µm | 29.09 µm |
+| M3 (PMOS – Active Load) | 35.9 µm | 83.37 µm |
 
-The calculated values are:
+### Justification
 
-NMOS  : W = 15.16 µm  
-PMOS  : W = 35.9 µm  
+During LTspice simulation, the theoretical widths did not produce
+exactly **200 µA** due to non-ideal MOSFET effects.
 
-(Refer Section 8: Width Calculation_FROM DEVICE PARAMETERS)
+| Reason | Effect |
+|------|------|
+| Channel length modulation | Changes effective drain current |
+| Cascode bias sensitivity | Small voltage changes affect current |
+| Mobility degradation | Reduces current compared to ideal model |
 
-### Practical Width Adjustment
+Therefore the widths were slightly adjusted in simulation until the
+desired operating current **ID ≈ 200 µA** was obtained while keeping all
+transistors in **saturation region**.
 
-During LTspice simulation, the drain current obtained 
-using theoretical widths was slightly different 
-from the target value of 200 µA.
-
-• Cascode bias sensitivity  
-• Channel length modulation  
-• Non-ideal device effects  
-
-Final dimensions used in simulation ensure
-all transistors operate in saturation.
-Hence, widths were slightly adjusted in LTspice 
-until ID ≈ 200 µA was achieved.
-
-Final Dimensions Used in Simulation:
-
-M1-NMOS  : W = 26.88u µm  (mid)
-
-M2-NMOS  : W=29.09u µm  (bottom)
-
-M3-PMOS  : W = 83.37u µm (top) 
-
------------------------------------------
+----
 ## Transient Analysis – Circuit 2B (Cascode)
 
-Input Signal:
+### Input Signal Parameters
 
-Vin = SINE(0.916 10m 1k)
+| Waveform | Frequency | Amplitude | DC Offset |
+|----------|-----------|-----------|-----------|
+| Sine | 1 kHz | 10 mV | 0.916 V |
 
-.tran 0 5m
+| Simulation Command | Value |
+|--------------------|-------|
+| Transient Command | `.tran 0 5m` |
 
-------------------------------------------------------------
-
-📌 Input Waveform
+---
+### Input Waveform
 
 ![Transient Input 2B]<img width="1915" height="847" alt="2bt_input" src="https://github.com/user-attachments/assets/9f5994aa-bba8-4fa2-8c64-17b4ecc44ffe" />
 
-
-------------------------------------------------------------
-
-📌 Output Waveform
+---
+### Output Waveform
 
 ![Transient Output 2B]<img width="1919" height="859" alt="2bt_output" src="https://github.com/user-attachments/assets/e5c89cb9-748f-4cc0-8da3-07edfa0bab5b" />
 
-
-------------------------------------------------------------
-
-📌 Input & Output (Combined)
+---
+### Input & Output Comparison
 
 ![Transient Combined 2B]<img width="1919" height="854" alt="2bt_combined" src="https://github.com/user-attachments/assets/d4b035b5-e7f6-4096-8a32-4558cf469a95" />
 
+---
+## Practical Gain Calculation
 
-------------------------------------------------------------
+| Vin(p-p) | Vout(p-p) | Gain (Av) | Gain (dB) |
+|----------|-----------|-----------|-----------|
+| 0.925 − 0.906 = **0.019 V** | 1.225 − 1.183 = **0.042 V** | 0.042 / 0.019 = **2.21 V/V** | **6.88 dB** |
 
-Observation:
+---
+### Observation
 
-• Output is inverted (180° phase shift).  
-• Output amplitude is significantly higher than input.  
-• No clipping observed.  
-• All transistors remain in saturation.
+The output signal is inverted relative to the input and shows clear
+voltage amplification, confirming correct operation of the cascode
+amplifier.
 
-Measured:
-
-Vin(p-p) = 0.925V - 0.906V
-Vin(p-p) =0.019V
-
-Vout(p-p) = 1.225V − 1.183V 
-Vout(p-p) = 0.042V 
-
-Practical gain:
-
-Av = Vout / Vin  
-
-Av = 0.042 / 0.019 
-
-Av = 2.210 V/V 
-
-Gain in dB:
-
-Av(dB) = 20 log(2.210)  
-
-Av(dB) = 6.88 dB  
-
-This is the gain obtained from transient waveform.
-
-----
-
+-----
 # AC Analysis
 
 ## – Frequency Response (Circuit 2B)
