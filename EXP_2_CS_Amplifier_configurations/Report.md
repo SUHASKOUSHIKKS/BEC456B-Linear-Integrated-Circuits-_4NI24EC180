@@ -245,6 +245,7 @@ Both MOSFETs operate in **saturation region**.
 | VS | VDS | Vout | VG | VGp | ID | RS | Vov |
 |----|-----|------|----|-----|----|----|----|
 | 0.2 V | 0.9 V | 1.1 V | 0.81 V | 1.16 V | 200 µA | 1 kΩ | 0.25 V |
+
 The calculated bias point ensures that both transistors operate in saturation
 while providing sufficient voltage headroom for maximum output signal swing.
 
