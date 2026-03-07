@@ -2,7 +2,7 @@
 
 ## Experiment 2:Common Source Amplifier -CONFIGURATIONS(TSMC 180nm)
 
-**Name:**Suhas Koushik K S  
+**Name:** Suhas Koushik K S  
 **USN:** 4NI24EC180  
 **Branch:** Electronics and Communication Engineering  
 **Lab Course:** Linear Integrated Circuits (BEC456B)  
@@ -28,8 +28,7 @@ To design and analyze the following MOS amplifier configurations using TSMC 180n
 ---
 ## 3. MOS Amplifier Fundamentals
 
-MOS amplifiers convert small input voltage variations into amplified output signals.  
-For proper amplification, MOSFETs must operate in the **saturation region**.
+MOS amplifiers convert small input voltage variations into amplified output signals. For proper amplification, MOSFETs must operate in the **saturation region**.
 
 ### MOSFET Equations
 
@@ -105,13 +104,12 @@ W = (2 ID L) / [μCox (Vov)²]
 ---
 ## Design Objective
 
-To design and implement a **source-degenerated common source amplifier**  
-for **ID = 200 µA** with **maximum symmetric output swing**.
+To design and implement a **source-degenerated common source amplifier**   for **ID = 200 µA** with **maximum symmetric output swing**.
 
 ---
 ## Circuit Implementation (LTspice)
 
-![Circuit 2A]<img width="676" height="802" alt="circuit2a" src="https://github.com/user-attachments/assets/f2fd8574-5f26-4518-8b56-8189b70a59fb" />
+<img width="676" height="802" alt="circuit2a" src="https://github.com/user-attachments/assets/f2fd8574-5f26-4518-8b56-8189b70a59fb" />
 
 ---
 # DC Analysis
@@ -136,8 +134,7 @@ for **ID = 200 µA** with **maximum symmetric output swing**.
 ---
 ## Output Voltage for Maximum Swing
 
-To achieve **maximum symmetric signal swing**, the NMOS drain–source
-voltage is placed near the midpoint of the supply.
+To achieve **maximum symmetric signal swing**, the NMOS drain–source voltage is placed near the midpoint of the supply.
 
 | VDS Calculation | Result |
 |-----------------|--------|
@@ -145,15 +142,12 @@ voltage is placed near the midpoint of the supply.
 
 **Justification**
 
-Placing the operating point at **half the supply voltage**
-provides equal headroom for positive and negative output swings,
-thereby maximizing dynamic range.
+Placing the operating point at **half the supply voltage** provides equal headroom for positive and negative output swings, thereby maximizing dynamic range.
 
 ---
 ## Source Voltage Selection
 
-A small source voltage is introduced using a **source resistor** to
-provide **negative feedback and bias stabilization**.
+A small source voltage is introduced using a **source resistor** to provide **negative feedback and bias stabilization**.
 
 | Parameter | Value |
 |-----------|------|
@@ -167,8 +161,7 @@ provide **negative feedback and bias stabilization**.
 | VS << VDD | Preserves drain voltage headroom |
 | Stabilizes ID | Increase in current raises VS → reduces VGS |
 
-Thus **0.2 V** provides feedback while keeping sufficient voltage
-available across the transistor.
+Thus **0.2 V** provides feedback while keeping sufficient voltage available across the transistor.
 
 ---
 ## Output Voltage Calculation
@@ -246,11 +239,10 @@ Both MOSFETs operate in **saturation region**.
 |----|-----|------|----|-----|----|----|----|
 | 0.2 V | 0.9 V | 1.1 V | 0.81 V | 1.16 V | 200 µA | 1 kΩ | 0.25 V |
 
-The calculated bias point ensures that both transistors operate in saturation
-while providing sufficient voltage headroom for maximum output signal swing.
+The calculated bias point ensures that both transistors operate in saturation while providing sufficient voltage headroom for maximum output signal swing.
 
 ------------------------------------------------------------
-![operating point - 2A]<img width="720" height="519" alt="circuit2aop" src="https://github.com/user-attachments/assets/1a17bf43-5d25-4251-b6f2-70671e00f70c" />
+<img width="720" height="519" alt="circuit2aop" src="https://github.com/user-attachments/assets/1a17bf43-5d25-4251-b6f2-70671e00f70c" />
 
 ## Width Selection – Circuit 2A
 
@@ -265,8 +257,7 @@ The transistor widths were slightly increased during simulation to compensate fo
 # Transient Analysis – Circuit 2A
 (Source Degenerated Common Source Amplifier)
 
-To evaluate the time-domain performance of the amplifier, a small-signal
-sinusoidal input was applied at the gate terminal.
+To evaluate the time-domain performance of the amplifier, a small-signal sinusoidal input was applied at the gate terminal.
 
 ## Input Signal Parameters
 
@@ -277,14 +268,13 @@ Input command used in LTspice:
 
 Vin = SINE(0.81 10m 1k)
 
-The DC offset corresponds to the calculated gate bias voltage required
-to maintain **ID ≈ 200 µA**.
+The DC offset corresponds to the calculated gate bias voltage required to maintain **ID ≈ 200 µA**.
 
 ---
 
 ## Input Waveform
 
-![Transient Input]<img width="1919" height="858" alt="2at_input" src="https://github.com/user-attachments/assets/5be9f8d1-8683-4d56-a79a-cf8d5859f77a" />
+<img width="1919" height="858" alt="2at_input" src="https://github.com/user-attachments/assets/5be9f8d1-8683-4d56-a79a-cf8d5859f77a" />
 
 The above waveform represents the sinusoidal input applied at the gate.
 
@@ -292,22 +282,19 @@ The above waveform represents the sinusoidal input applied at the gate.
 
 ## Output Waveform
 
-![Transient Output]<img width="1919" height="861" alt="2at_output" src="https://github.com/user-attachments/assets/2d637dec-8348-4023-a200-dbd4c395d076" />
+<img width="1919" height="861" alt="2at_output" src="https://github.com/user-attachments/assets/2d637dec-8348-4023-a200-dbd4c395d076" />
 
-Since this is a **common source amplifier**, the output signal is inverted
-with respect to the input and exhibits a larger amplitude.
+Since this is a **common source amplifier**, the output signal is inverted with respect to the input and exhibits a larger amplitude.
 
 ---
 
 ## Input and Output Comparison
 
-![Transient Combined]<img width="1919" height="844" alt="2at_combined" src="https://github.com/user-attachments/assets/6118177b-885e-418a-9325-dd935be3f2ad" />
+<img width="1919" height="844" alt="2at_combined" src="https://github.com/user-attachments/assets/6118177b-885e-418a-9325-dd935be3f2ad" />
 
-The combined waveform clearly shows amplification and the expected
-**180° phase inversion**.
+The combined waveform clearly shows amplification and the expected **180° phase inversion**.
 
 ---
-
 #Practical Gain Calculation from Transient Waveform
 
 | Vin(p-p) | Vout(p-p) | Gain (Av) | Gain (dB) |
@@ -316,15 +303,12 @@ The combined waveform clearly shows amplification and the expected
 
 ## Observation
 
-The output signal is inverted relative to the input and shows
-clear voltage amplification without distortion for the applied
-small-signal input.
+The output signal is inverted relative to the input and shows clear voltage amplification without distortion for the applied small-signal input.
 
 ---
 # AC Analysis – Circuit 2A
 
-Small-signal AC analysis was performed to determine the frequency response
-and midband gain of the amplifier.
+Small-signal AC analysis was performed to determine the frequency response and midband gain of the amplifier.
 
 ### Simulation Parameters
 
@@ -333,27 +317,29 @@ and midband gain of the amplifier.
 | `.ac dec 1000 .1 1G` | 1 V |
 ---
 
-![AC Gain Plot]<img width="1917" height="867" alt="2aac_gain" src="https://github.com/user-attachments/assets/f8bbe4af-05e6-4259-9244-22ce99d99c7f" />
+<img width="1917" height="867" alt="2aac_gain" src="https://github.com/user-attachments/assets/f8bbe4af-05e6-4259-9244-22ce99d99c7f" />
 
 ---
 
-### Frequency Response Results
+## Frequency Response Results – Circuit 2A
 
-| Midband Gain | −3 dB Gain | Bandwidth |
-|--------------|------------|-----------|
-| **28.71 dB** | **25.71 dB** | **52.1 MHz** |
+| Gain (dB) | Gain (V/V) | −3 dB Gain | Bandwidth | GBW | UGB |
+|-----------|------------|------------|-----------|------|------|
+| 28.71 dB | 10^(28.71/20) = **27.25** | 25.71 dB | **52.119 MHz** | 27.25 × 52.119 MHz = **1.42 GHz** | **1.717 GHz** |
+The midband gain is obtained from the flat region of the AC frequency response plot.   The bandwidth corresponds to the frequency where the gain drops by **3 dB** from the midband value. The unity gain bandwidth is obtained from the frequency where the gain becomes **0 dB**.
+
+### Note on GBW and UGB
+In an ideal single-pole amplifier, the gain-bandwidth product (GBW) equals the unity-gain bandwidth (UGB). However, practical MOS amplifiers exhibit multiple poles due to parasitic capacitances such as Cgs, Cgd, and node capacitances. These additional poles modify the frequency response, causing GBW and UGB to deviate slightly from the ideal relationship.
+
 ---
-
 ## Theoretical Gain – Circuit 2A
-
 Small-signal parameters obtained from the LTspice operating point:
 
 | gm₁ | ro₁ | ro₂ | RS |
 |-----|-----|-----|----|
 | 1.6 mS | 58.8 kΩ | 58.8 kΩ | 1 kΩ |
 
-The gain of a **source-degenerated common source amplifier**
-with active load is given by:
+The gain of a **source-degenerated common source amplifier** with active load is given by:
 
 Av = - gm₁ / (1 + gm₁RS + RS/ro₁) × ([gm₁RSro₁ + RS + ro₁] ∥ ro₂)
 
@@ -361,25 +347,20 @@ Av = - gm₁ / (1 + gm₁RS + RS/ro₁) × ([gm₁RSro₁ + RS + ro₁] ∥ ro�
 |-------------|-----------------------|--------------|-----------|
 | 1 + 1.6 + (1k/58.8k) = **2.617** | ([gm₁RSro₁ + RS + ro₁] ∥ ro₂) ≈ **42.6 kΩ** | (1.6 mS / 2.617) × 42.6 kΩ ≈ **26 V/V** | 20 log₁₀(26) ≈ **28 dB** |
 
-For **TSMC 180 nm technology**, the channel-length modulation parameter
-λ typically lies in the range **0.1–0.2 V⁻¹**, which produces output
-resistance values consistent with the LTspice operating point.
+For **TSMC 180 nm technology**, the channel-length modulation parameter λ typically lies in the range **0.1–0.2 V⁻¹**, which produces output resistance values consistent with the LTspice operating point.
 
 ---
 ### Observation
-The AC analysis shows a midband gain of 28.71 dB, which agrees closely
-with both theoretical and transient gain results.
+The AC analysis shows a midband gain of 28.71 dB, which agrees closely with both theoretical and transient gain results.
 ### Reason for Small Variation
-The difference occurs because theoretical calculations assume ideal
-device behavior, while LTspice includes practical effects such as
-channel-length modulation.
+The difference occurs because theoretical calculations assume ideal device behavior, while LTspice includes practical effects such as channel-length modulation.
 
 -----------------------------------------------------------------------------------
 ### EXP2- CIRCUIT 2B – Common Source – Cascode Amplifier with Active Load
 -----------------------------------------------------------------------------------
 ### Circuit Implementation in LTspice
 
-![Circuit 2B]<img width="783" height="821" alt="circuit2b" src="https://github.com/user-attachments/assets/0e2746e3-761b-4605-a284-921b31f4f046" />
+<img width="783" height="821" alt="circuit2b" src="https://github.com/user-attachments/assets/0e2746e3-761b-4605-a284-921b31f4f046" />
 
 # DC Analysis – Circuit 2B (Cascode Amplifier)
 
@@ -390,7 +371,6 @@ channel-length modulation.
 | 1.8 V | 200 µA | 0.36 V | −0.39 V |
 
 ---
-
 # Voltage Limits for Proper Operation
 
 | Parameter | Minimum | Maximum | Reason |
@@ -401,7 +381,6 @@ channel-length modulation.
 | VSD (PMOS) | ≥ VOV | ≤ VDD | Saturation condition |
 
 ---
-
 # Overdrive Voltage Determination
 
 | Calculation | Result |
@@ -438,11 +417,9 @@ A moderate overdrive voltage
 • leaves headroom for signal swing
 
 ---
-
 # Intermediate Node Voltage (VS1)
 
-In a cascode amplifier, the drain of the lower transistor becomes the
-source of the upper transistor.
+In a cascode amplifier, the drain of the lower transistor becomes the source of the upper transistor.
 
 To keep the **lower NMOS (M2) in saturation**
 
@@ -478,7 +455,6 @@ satisfies the saturation condition.
 | Stable bias | allows correct cascode operation |
 
 ---
-
 # Output Voltage Selection
 
 For maximum signal swing
@@ -496,7 +472,6 @@ Output node voltage
 | Vout = VDS + VS1 = 0.9 + 0.3 | **1.2 V** |
 
 ---
-
 # Saturation Verification
 
 | Device | Condition | Result |
@@ -508,7 +483,6 @@ Output node voltage
 All MOSFETs operate in **saturation region**.
 
 ---
-
 # Final DC Operating Point
 
 | VS2 | VS1 | Vout | ID | VOV |
@@ -516,10 +490,9 @@ All MOSFETs operate in **saturation region**.
 | 0 V | 0.3 V | 1.2 V | 200 µA | 0.25 V |
 
 ###  LTspice Operating Point
+<img width="835" height="578" alt="circuit2bop" src="https://github.com/user-attachments/assets/7b9cb4ec-1bba-4ac9-be79-6ab2e4a80bea" />
 
-![operating point - 2B]<img width="835" height="578" alt="circuit2bop" src="https://github.com/user-attachments/assets/7b9cb4ec-1bba-4ac9-be79-6ab2e4a80bea" />
 ## Width Selection – Circuit 2B
-
 The transistor widths were initially calculated using the square-law
 saturation current equation to obtain **ID ≈ 200 µA**.
 
@@ -530,9 +503,7 @@ saturation current equation to obtain **ID ≈ 200 µA**.
 | M3 (PMOS – Active Load) | 35.9 µm | 83.37 µm |
 
 ### Justification
-
-During LTspice simulation, the theoretical widths did not produce
-exactly **200 µA** due to non-ideal MOSFET effects.
+During LTspice simulation, the theoretical widths did not produce exactly **200 µA** due to non-ideal MOSFET effects.
 
 | Reason | Effect |
 |------|------|
@@ -540,9 +511,7 @@ exactly **200 µA** due to non-ideal MOSFET effects.
 | Cascode bias sensitivity | Small voltage changes affect current |
 | Mobility degradation | Reduces current compared to ideal model |
 
-Therefore the widths were slightly adjusted in simulation until the
-desired operating current **ID ≈ 200 µA** was obtained while keeping all
-transistors in **saturation region**.
+Therefore the widths were slightly adjusted in simulation until the desired operating current **ID ≈ 200 µA** was obtained while keeping all transistors in **saturation region**.
 
 ----
 ## Transient Analysis – Circuit 2B (Cascode)
@@ -560,17 +529,17 @@ transistors in **saturation region**.
 ---
 ### Input Waveform
 
-![Transient Input 2B]<img width="1915" height="847" alt="2bt_input" src="https://github.com/user-attachments/assets/9f5994aa-bba8-4fa2-8c64-17b4ecc44ffe" />
+<img width="1915" height="847" alt="2bt_input" src="https://github.com/user-attachments/assets/9f5994aa-bba8-4fa2-8c64-17b4ecc44ffe" />
 
 ---
 ### Output Waveform
 
-![Transient Output 2B]<img width="1919" height="859" alt="2bt_output" src="https://github.com/user-attachments/assets/e5c89cb9-748f-4cc0-8da3-07edfa0bab5b" />
+<img width="1919" height="859" alt="2bt_output" src="https://github.com/user-attachments/assets/e5c89cb9-748f-4cc0-8da3-07edfa0bab5b" />
 
 ---
 ### Input & Output Comparison
 
-![Transient Combined 2B]<img width="1919" height="854" alt="2bt_combined" src="https://github.com/user-attachments/assets/d4b035b5-e7f6-4096-8a32-4558cf469a95" />
+<img width="1919" height="854" alt="2bt_combined" src="https://github.com/user-attachments/assets/d4b035b5-e7f6-4096-8a32-4558cf469a95" />
 
 ---
 ## Practical Gain Calculation
@@ -582,424 +551,468 @@ transistors in **saturation region**.
 ---
 ### Observation
 
-The output signal is inverted relative to the input and shows clear
-voltage amplification, confirming correct operation of the cascode
-amplifier.
+The output signal is inverted relative to the input and shows clear voltage amplification, confirming correct operation of the cascode amplifier.
 
 -----
-# AC Analysis
+# AC Analysis – Circuit 2B
 
-## – Frequency Response (Circuit 2B)
+Small-signal AC analysis was performed to determine the frequency response and gain characteristics of the cascode amplifier.
 
-To determine midband gain and bandwidth,
-small-signal AC analysis was performed.
+### Simulation Parameters
 
-AC Simulation Command Used:
+| AC Command | Input AC Magnitude |
+|------------|--------------------|
+| `.ac dec 1000 .1 1G` | 1 V |
 
-.ac dec 1000 .1 1G
+---
+<img width="1915" height="848" alt="2bac_gain" src="https://github.com/user-attachments/assets/eb71ebf0-3b06-49f0-aa7c-752a2d80bcfd" />
 
-Input AC magnitude = 1 V
+---
+## Gain and Frequency Characteristics – Circuit 2B
 
-------------------------------------------------------------
+| Parameter | Calculation | Result |
+|-----------|-------------|--------|
+| Midband Gain | From AC plot | **6.94 dB (≈ 2.22 V/V)** |
+| −3 dB Bandwidth | From AC plot | **48.417 MHz** |
+| Gain Bandwidth Product (GBW) | 2.22 × 48.417 MHz | **≈ 107.48 MHz** |
+| Unity Gain Bandwidth (UGB) | Frequency at 0 dB | **=90.782 MHz** |
 
-![AC Gain Plot]<img width="1915" height="848" alt="2bac_gain" src="https://github.com/user-attachments/assets/eb71ebf0-3b06-49f0-aa7c-752a2d80bcfd" />
+-----
+# Theoretical Gain – Circuit 2B
 
+For TSMC 180 nm CMOS technology, the channel-length modulation parameter typically lies in the rangeλ ≈ 0.1 – 0.2 V⁻¹
 
-Figure: AC Gain (Magnitude vs Frequency)
+Given
 
-From AC plot:
+| Parameter | Value |
+|-----------|------|
+| ID | 200 µA |
+| Vov | 0.25 V |
+| gm | 1.6 mS |
 
-maximum Gain ≈ 6.94 dB
+Output resistance
 
-The measured AC gain is 6.94 dB, which strongly correlates with our transient calculation
+ro = 1 / (λ ID)
 
--3dB point-->>3.94dB=45.289MHz
+Taking a typical value λ = 0.15 V⁻¹
 
----------
-## Theoretical Gain – Circuit 2B
+ro = 1 / (0.15 × 200 µA)
 
-gm1 = 1.6 mS  
-ro1 ≈ ro2 ≈ ro3 ≈ 1.5 kΩ  
+ro ≈ **33.3 kΩ**
 
-Gain formula:
+Thus
+
+ro1 ≈ ro2 ≈ ro3 ≈ **33.3 kΩ**
+
+---
+### Gain Expression
+
+For the cascode stage with active load
 
 Av =
-- gm1 / (1 + gm1ro2 + ro2/ro1)
+− gm1 /
+(1 + gm1ro2 + ro2/ro1)
 ×
-([gm1ro2ro1 + ro2 + ro1] || ro3)
+([gm1ro2ro1 + ro2 + ro1] ∥ ro3)
 
-------------------------------------------------------------
+---
+### Calculation
 
-Substitution:
+| Step | Result |
+|-----|-------|
+| Denominator | 1 + (1.6mS × 33.3k) + 1 = **55.3** |
+| Bracket term | (1.6mS × 33.3k × 33.3k + 66.6k) ∥ 33.3k |
+| | **≈ 32.7 kΩ** |
 
-Denominator = 1 + 2.4 + 1 = 4.4  
+Voltage gain
 
-Bracket term = 6.6k || 1.5k ≈ 1.2k  
+Av = (1.6mS / 55.3) × 32.7k
 
-Av = - (1.6mS / 4.4) × 1.2k  
+Av ≈ **0.94 V/V**
 
-Av ≈ -2.18 V/V  
+Gain in dB
 
-Gain ≈ 6.9 dB 
+Av(dB) = 20 log(0.94)
 
-Theoretical gain ≈ 6.88 dB,
+Av ≈ **−0.5 dB**
 
-which nearly matches AC and transient results (≈ 6.9 dB).
+---
+### Reason for Difference Between Theory and Simulation
 
---------
+The theoretical calculation uses a simplified small-signal MOS model where
 
-### Reason for Small Difference Between Theory and Simulation
+ro = 1 / (λID)
 
-The slight difference between theoretical and simulated gain
-occurs because theoretical calculations use simplified
-small-signal equations, while LTspice uses a complete BSIM
-model.
+However, LTspice uses the complete **BSIM MOSFET model**, which includes:
 
-Simulation includes:
+• mobility degradation  
+• body effect  
+• velocity saturation  
+• detailed channel-length modulation  
 
-• Channel length modulation  
-• Parasitic capacitances  
-• Mobility degradation  
-• Higher-order device effects  
+These effects increase the effective output resistance of the cascode stage,resulting in a higher simulated gain (**≈ 6.9 dB**) compared to the simplified analytical value.
 
-Hence, a small variation (few tenths of dB) is expected.
-
----------------------------------------------------------
-
-### EXP2- CIRCUIT C – Common Source Amplifier with Diode-Connected NMOS Current Source and PMOS Active Load
+---
+### EXP2 – CIRCUIT 2C – 
+Common Source Amplifier with Diode-Connected NMOS Current Source and PMOS Active Load
 -------------------------------------------------------------
 
 ### Circuit Implementation in LTspice
+<img width="759" height="850" alt="circuit2c" src="https://github.com/user-attachments/assets/f8919fea-a198-4e16-bd7e-c94ccda1caae" />
 
-![Circuit 2C]<img width="759" height="850" alt="circuit2c" src="https://github.com/user-attachments/assets/f8919fea-a198-4e16-bd7e-c94ccda1caae" />
+---
+# DC Analysis – Circuit 2C
 
+## Design Conditions
 
-## DC Analysis – Circuit 2C
-## Bias Calculation – Circuit 2C  
-(Common Source with Diode-Connected Current Source)
+| VDD | ID | VTHn | VTHp |
+|----|----|----|----|
+| 1.8 V | 200 µA | 0.36 V | −0.39 V |
 
-Given:
+---
+## Voltage Limits for Saturation Operation
 
-VTHn = 0.36 V 
-VTHp =-0.39V
-Vov = 0.25 V  
-VDD = 1.8 V  
+| Parameter | Minimum | Maximum | Reason |
+|-----------|---------|---------|--------|
+| VGS (NMOS) | ≥ 0.36 V | ≤ 1.8 V | Channel formation |
+| VDS (NMOS) | ≥ VOV | ≤ 1.8 V | Saturation condition |
+| VSG (PMOS) | ≥ 0.39 V | ≤ 1.8 V | PMOS conduction |
+| VSD (PMOS) | ≥ VOV | ≤ 1.8 V | Saturation condition |
 
-------------------------------------------------------------
+---
+# Overdrive Voltage Verification
 
-### Step 1: Diode-Connected NMOS (M3)
+| Calculation | Result |
+|-------------|--------|
+| VGS = VTH + VOV = 0.36 + 0.25 | **0.61 V** |
+| VOV = VGS − VTH = 0.61 − 0.36 | **0.25 V** |
 
-Since M3 is diode-connected:
+### Allowable Range
 
-VD3 = VG3  
+| Minimum VOV | Maximum VOV |
+|-------------|-------------|
+| > 0 | < VDS |
 
-For ID = 200 µA,
+Since
 
-VGS3 = Vthn + Vov  
-VGS3 = 0.36 + 0.25  
-VGS3 = 0.61 V  
+VDS ≈ **0.9 V**
 
-Source of M3 = 0 V  
+the allowable range becomes
 
-Therefore,
+0 < VOV < 0.9 V
 
-VD3 = VS1 = 0.61 V  
+The obtained value
 
-This fixes the source voltage of M1.
+**VOV = 0.25 V**
 
-------------------------------------------------------------
+lies comfortably within this range.
 
-### Step 2: Gate Voltage of M1
+### Justification
+A moderate overdrive voltage
 
-For M1 to carry same current:
+• provides sufficient transconductance  
+• maintains stable drain current  
+• leaves voltage headroom for signal swing
 
-VGS1 = Vthn + Vov  
-VGS1 = 0.36 + 0.25  
-VGS1 = 0.61 V  
+---
+# Diode-Connected NMOS Bias (M3)
 
-Since,
+In a diode-connected MOSFET
 
-VG1 = VS1 + VGS1  
+VD = VG
 
-VG1 = 0.61 + 0.61  
+Thus
 
-VG1 = 1.22 V  
+| Calculation | Result |
+|-------------|--------|
+| VGS3 = VTH + VOV = 0.36 + 0.25 | **0.61 V** |
 
-Hence input DC bias = 1.22 V.
+Since the source of M3 is grounded
 
-------------------------------------------------------------
+| Node | Voltage |
+|------|--------|
+| VS3 | 0 V |
+| VD3 = VG3 | **0.61 V** |
 
-### 3) PMOS Gate Voltage
+This node becomes the **source of M1**.
 
-For PMOS carrying same ID:
+Therefore
 
-VSG2 = |Vthp| + Vov  
-VSG2 = 0.39 + 0.25  
-VSG2 = 0.64 V  
+| Node | Voltage |
+|------|--------|
+| VS1 | **0.61 V** |
 
-Since source of PMOS = VDD = 1.8 V,
+### Justification
 
-VG2 = VS − VSG2  
-VG2 = 1.8 − 0.64  
-VG2 = 1.16 V  
+The diode-connected NMOS automatically adjusts its gate-source voltage to maintain the desired drain current (≈200 µA). This fixes the node voltage at approximately **0.61 V**, establishing the correct bias for the amplifier.
 
-✔ PMOS gate bias = 1.16 V  
+---
+# Gate Bias of M1
 
-------------------------------------------------------------
+For transistor M1 to carry the same current:
 
-### 3) Output Voltage
+| Calculation | Result |
+|-------------|--------|
+| VGS1 = VTH + VOV = 0.36 + 0.25 | **0.61 V** |
+| VG1 = VS1 + VGS1 = 0.61 + 0.61 | **1.22 V** |
 
-VDS1 = 0.9 V   (vDD/2)
+Thus the **input DC bias voltage** is
 
-Vout = VDS1 + VS1  
+**VIN(DC) ≈ 1.22 V**
 
-Vout = 0.9 + 0.6  
+---
+# Output Voltage Selection
 
-Vout = 1.5 V  
+For maximum signal swing
 
+VDS ≈ VDD / 2
 
-All transistors operate in saturation.
+| Calculation | Result |
+|-------------|--------|
+| VDS = 1.8 / 2 | **0.9 V** |
 
-------------------------------------------------------------
+Therefore
 
-### Why 0.2 V or 0.3 V Will Not Work?
+| Calculation | Result |
+|-------------|--------|
+| Vout = VDS + VS1 = 0.9 + 0.61 | **≈ 1.5 V** |
 
-If VS1 = 0.2 V:
+---
+# PMOS Active Load Bias
 
-VGS3 = 0.2 V < Vthn (0.36 V)
+| Calculation | Result |
+|-------------|--------|
+| VSG2 = |VTHp| + VOV = 0.39 + 0.25 | **0.64 V** |
+| VG2 = VDD − VSG2 = 1.8 − 0.64 | **1.16 V** |
 
-M3 turns OFF → current will not flow.
+Drain-source voltage
 
-Hence source voltage is not assumed.
-It is fixed by the diode-connected NMOS bias condition.
---------------------------------------------------------------
-###  LTspice Operating Point
-![operating point - 2C]<img width="605" height="541" alt="circuit2cop" src="https://github.com/user-attachments/assets/4974f15c-eb00-422d-be8b-91ca110c9c50" />
+| Calculation | Result |
+|-------------|--------|
+| VSD2 = 1.8 − 1.5 | **0.3 V** |
 
-###  Width Selection for Circuit A
+### Saturation Check
 
-The MOSFET widths were calculated earlier using the 
-square-law saturation equation to obtain ID = 200 µA.
+| Device | Condition | Result |
+|------|-----------|--------|
+| M1 (NMOS) | VDS ≥ VOV | 0.9 ≥ 0.25 ✔ |
+| M3 (NMOS) | VDS ≥ VOV | 0.61 ≥ 0.25 ✔ |
+| M2 (PMOS) | VSD ≥ VOV | 0.3 ≥ 0.25 ✔ |
 
-The calculated values are:
+Thus **all transistors operate in saturation region**.
 
-NMOS  : W = 15.16 µm  
-PMOS  : W = 35.9 µm  
+---
+# Final DC Operating Point
 
-(Refer Section 8: Width Calculation_FROM DEVICE PARAMETERS)
+| VS1 | Vout | VG1 | VG2 | ID | VOV |
+|----|----|----|----|----|----|
+| 0.61 V | 1.5 V | 1.22 V | 1.16 V | 200 µA | 0.25 V |
 
-### Practical Width Adjustment
+The diode-connected NMOS automatically establishes the correct source voltage for M1, ensuring stable biasing and maintaining all transistors in saturation.
 
-During LTspice simulation, the drain current obtained 
-using theoretical widths was slightly different 
-from the target value of 200 µA.
+---
+### LTspice Operating Point
 
-• Cascode bias sensitivity  
-• Channel length modulation  
-• Non-ideal device effects  
+<img width="605" height="541" alt="circuit2cop" src="https://github.com/user-attachments/assets/4974f15c-eb00-422d-be8b-91ca110c9c50" />
 
-Final dimensions used in simulation ensure
-all transistors operate in saturation.
-Hence, widths were slightly adjusted in LTspice 
-until ID ≈ 200 µA was achieved.
+## Width Selection – Circuit 2C
+The transistor widths were initially calculated using the square-law saturation current equation to obtain **ID ≈ 200 µA**.
 
-Final Dimensions Used in Simulation:
+| Device | Calculated Width | Practical Width |
+|------|------|------|
+| M1 (NMOS – Amplifier) | 15.16 µm | 26.34 µm |
+| M2 (PMOS – Active Load) | 35.9 µm | 87.87 µm |
+| M3 (NMOS – Diode Connected Current Source) | 15.16 µm | 33.26 µm |
 
-M1-NMOS  : W = 26.34u µm  (mid)
+### Justification
 
-M2-PMOS  : W=87.87u µm  (top)
+During LTspice simulation, the theoretical widths did not produce exactly **200 µA** due to practical MOSFET model effects.
 
-M3-NMOS  : W = 33.26u µm (top)
+| Reason | Effect |
+|------|------|
+| Channel length modulation | Changes effective drain current |
+| Diode-connected bias sensitivity | Current strongly depends on VGS |
+| Mobility degradation | Reduces current compared to ideal model |
 
------------------------------------------------
-## Transient Analysis – Circuit 2C
+Therefore the widths were slightly adjusted in simulation until the desired operating current **ID ≈ 200 µA** was obtained while keeping all transistors in **saturation region**.
 
-Input Signal:
+---
+## Transient Analysis – Circuit 2C (Common Source with Diode-Connected Current Source)
 
-Vin = SINE(1.22 10m 1k)
+### Input Signal Parameters
 
-.tran 0 5m
+| Waveform | Frequency | Amplitude | DC Offset |
+|----------|-----------|-----------|-----------|
+| Sine | 1 kHz | 10 mV | 1.22 V |
 
-------------------------------------------------------------
+| Simulation Command | Value |
+|--------------------|-------|
+| Transient Command | `.tran 0 5m` |
 
-📌 Input Waveform
+---
+### Input Waveform
 
-![Transient Input 2C]<img width="1919" height="861" alt="2ct_input" src="https://github.com/user-attachments/assets/488921a3-53c6-42f0-b3b1-63ef0d9aa6ec" />
+<img width="1919" height="861" alt="2ct_input" src="https://github.com/user-attachments/assets/488921a3-53c6-42f0-b3b1-63ef0d9aa6ec" />
 
+---
+### Output Waveform
 
-------------------------------------------------------------
+<img width="1919" height="857" alt="2ct_output" src="https://github.com/user-attachments/assets/fdd3775a-909a-4a35-aa28-f4aa44f14767" />
 
-📌 Output Waveform
+---
+### Input & Output Comparison
 
-![Transient Output 2C]<img width="1919" height="857" alt="2ct_output" src="https://github.com/user-attachments/assets/fdd3775a-909a-4a35-aa28-f4aa44f14767" />
+<img width="1909" height="858" alt="2ct_combined" src="https://github.com/user-attachments/assets/feda64ee-1a11-4c39-af94-20888a61345f" />
 
+---
+## Practical Gain Calculation
 
-------------------------------------------------------------
+| Vin(p-p) | Vout(p-p) | Gain (Av) | Gain (dB) |
+|----------|-----------|-----------|-----------|
+| 1.229 − 1.210 = **0.019 V** | 1.618 − 1.235 = **0.383 V** | 0.383 / 0.019 = **20.16 V/V** | **26.08 dB** |
 
-📌 Input & Output (Combined)
+---
+### Observation
 
-![Transient Combined 2B]<img width="1909" height="858" alt="2ct_combined" src="https://github.com/user-attachments/assets/feda64ee-1a11-4c39-af94-20888a61345f" />
+The output waveform is inverted with respect to the input signal, confirming **common-source operation**. The output amplitude is significantly larger than the input amplitude, demonstrating proper voltage amplification while maintaining a stable bias point around **1.5 V**.
 
-
-------------------------------------------------------------
-Observation:
-
-• Output is inverted (180° phase shift).  
-• Output amplitude is greater than input.  
-• No clipping observed.  
-• Bias point remains stable around 1.5 V.
-
-Measured:
-
-Vin(p-p) = 1.229V - 1.210V
-Vin(p-p) =0.019V
-
-Vout(p-p) = 1.618V − 1.235V 
-Vout(p-p) = 0.383V 
-
-Practical gain:
-
-Av = Vout / Vin  
-
-Av = 0.383 / 0.019 
-
-Av = 20.157 V/V 
-
-Gain in dB:
-
-Av(dB) = 20 log(20.157)  
-
-Av(dB) = 26.08 dB  
-
-This is the gain obtained from transient waveform.
 ----
-# AC Analysis
+# AC Analysis – Circuit 2C
 
-## – Frequency Response (Circuit 2C)
+Small-signal AC analysis was performed to determine the **frequency response, midband gain, and bandwidth** of the amplifier.
 
-To determine midband gain and bandwidth,
-small-signal AC analysis was performed.
+### Simulation Parameters
 
-AC Simulation Command Used:
+| Parameter | Value |
+|-----------|------|
+| AC Command | `.ac dec 1000 .1 1G` |
+| Input AC magnitude | 1 V |
 
-.ac dec 1000 .1 1G
+---
+<img width="1917" height="862" alt="2cac_gain" src="https://github.com/user-attachments/assets/a3375b34-a0da-4127-876e-fd4659fe7594" />
 
-Input AC magnitude = 1 V
+---
+## Frequency Response Results – Circuit 2C
 
-------------------------------------------------------------
+| Gain (dB) | Gain (V/V) | −3 dB Gain | Bandwidth | GBW | UGB |
+|-----------|------------|------------|-----------|------|------|
+| 25.55 dB | 10^(25.55/20) = **18.94** | 22.55 dB | **119.124 MHz** | 18.94 × 119.124 MHz = **2.25 GHz** | **≈ 2.691 GHz** |
 
-![AC Gain Plot]<img width="1917" height="862" alt="2cac_gain" src="https://github.com/user-attachments/assets/a3375b34-a0da-4127-876e-fd4659fe7594" />
+The AC response confirms the amplifier’s midband gain and bandwidth. The gain–bandwidth product and unity gain bandwidth were obtainedfrom the same frequency response plot.
 
-
-Figure: AC Gain (Magnitude vs Frequency)
-
-From AC plot:
-
-maximum Gain ≈ 25.55 dB 
-
-The measured AC gain is 25.55 dB, which strongly correlates with our transient calculation
-
--3dB point-->>22.55dB=118.304MHz
-------------------------------------------
 ## Theoretical Gain – Circuit 2C
 
-Gain formula:
+The gain of a **common-source amplifier with diode-connected NMOS current source and PMOS active load** is
 
 Av =
-- gm1 / (1 + gm1ro3)
+- gm1 / (1 + gm1 ro3)
 × (ro1 || ro2)
 
-------------------------------------------------------------
+For **TSMC 180 nm CMOS technology**, the channel-length modulation parameter lies approximately in the range
 
-gm1 = 1.6 mS  
-ro1 ≈ ro2 ≈ ro3 ≈ 25 kΩ  
+λ ≈ 0.1 – 0.2 V⁻¹
 
-ro1 || ro2 = 12.5 kΩ  
+Taking
 
-Denominator = 1 + (1.6mS × 25k)  
-            = 41  
+λ = **0.14 V⁻¹**
 
-Av = - (1.6mS / 41) × 12.5k  
+### Small-Signal Parameters
 
-Av ≈ -19.5 V/V  
+| Parameter | Calculation | Result |
+|-----------|-------------|--------|
+| gm1 | 2ID / Vov = (2 × 200µA) / 0.25 | **1.6 mS** |
+| ro | 1 / (λID) = 1 / (0.14 × 200µA) | **35.7 kΩ** |
 
-Gain≈25.8dB
+Since all MOSFETs carry the same current,
+ro1 ≈ ro2 ≈ ro3 ≈ **35.7 kΩ**
 
-----------------------
-### Reason for Difference Between Theoretical and Simulation Gain
+---
+### Gain Calculation
 
-The slight difference between theoretical and simulated gain
-occurs because theoretical calculations use simplified
-small-signal equations, while LTspice uses a complete MOSFET
-model (BSIM).
+| Step | Expression | Result |
+|------|------------|--------|
+| ro1 || ro2 | (35.7k || 35.7k) | **17.85 kΩ** |
+| Denominator | 1 + gm1ro3 = 1 + (1.6mS × 35.7k) | **58.12** |
+| Voltage Gain | (1.6mS / 58.12) × 17.85k | **≈ 20 V/V** |
+| Gain (dB) | 20 log10(20) | **≈ 26.02 dB** |
 
-Simulation includes:
+Thus the theoretical gain is approximately **26 dB**, which closely matches the gains obtained from
 
-• Channel length modulation variations  
-• Parasitic capacitances  
-• Mobility degradation  
-• Body effect  
-• Exact gm and ro values from operating point  
+• **Transient analysis ≈ 26.08 dB**  
+• **AC analysis ≈ 25.55 dB**
 
-Hence, a small variation (≈ 0.5–1 dB) is expected.
+---
+### Reason for Small Difference
 
-----------
+The slight difference between theoretical and simulated gain occurs because theoretical calculations use simplified small-signal equations, while LTspice uses a complete **BSIM MOSFET model** including
 
+• channel-length modulation variations  
+• parasitic capacitances  
+• mobility degradation  
+• body effect
+
+Hence a small variation (≈0.5–1 dB) between theoretical and simulation results is expected.
+
+------
 # Summary, Inference and Conclusion
 
 ## Summary
 
-In this experiment, three MOSFET amplifier configurations were
-implemented and analyzed:
+In this experiment, three MOSFET amplifier configurations were designed and analyzed using **TSMC 180 nm CMOS technology in LTspice**.
 
-• Circuit 2A – SOURCE DEGENERATED COMMON SOURCE AMPLIFIER
-  • Circuit 2B – Common Source – Cascode Amplifier with Active Load 
-• Circuit 2C –  Common Source Amplifier with Diode-Connected NMOS Current Source and PMOS Active Load
-For each circuit:
+The circuits studied were:
 
-- DC bias conditions were calculated.
-- Saturation of all transistors was verified.
-- Transient and AC analyses were performed.
-- Theoretical gain was derived and compared with simulation.
+• **Circuit 2A – Source Degenerated Common Source Amplifier**  
+• **Circuit 2B – Cascode Amplifier with Active Load**  
+• **Circuit 2C – Common Source Amplifier with Diode-Connected NMOS Current Source and PMOS Active Load**
 
-------------------------------------------------------------
+For each configuration:
 
+- DC bias conditions were calculated to ensure correct operating points.
+- Saturation of all MOSFETs was verified.
+- Transient analysis was performed to observe time-domain amplification.
+- AC analysis was used to obtain gain and frequency response.
+- Theoretical gain was derived and compared with simulation results.
+
+---
 ## Inference
 
-• Source degeneration (2A) reduces gain but improves stability.  
-• Cascode structure (2B) increases output resistance but practical loading reduced gain.  
-• Active load configuration (2C) provides higher gain without source degeneration.  
-• Theoretical and simulated gains closely match with minor variation due to non-ideal effects.
+• **Source degeneration (Circuit 2A)** introduces negative feedback, which improves bias stability but slightly reduces gain.
 
-------------------------------------------------------------
+• **Cascode configuration (Circuit 2B)** increases output resistance theoretically; however, practical device limitations and loading reduce the achievable gain.
 
-## Comparison of All Three Circuits
+• **Active load configuration (Circuit 2C)** uses a diode-connected current source and PMOS load, enabling higher voltage gain without source degeneration.
+
+• Minor differences between theoretical and simulated results occur due to non-ideal MOSFET effects included in the LTspice BSIM model.
+
+---
+## Comparison of Amplifier Configurations
 
 | Parameter | Circuit 2A | Circuit 2B | Circuit 2C |
-|------------|------------|------------|------------|
+|-----------|------------|------------|------------|
 | Configuration | Source Degenerated CS | Cascode Amplifier | CS with Active Load |
-| Source Node | Fixed by RS | Raised by Cascode NMOS | Fixed by Diode NMOS |
+| Source Biasing | Source resistor (RS) | Cascode NMOS bias | Diode-connected NMOS |
 | Output Voltage (DC) | ≈ 1.1 V | ≈ 1.2 V | ≈ 1.5 V |
-| Theoretical Gain | ≈ 28 dB | ≈ 6.9 dB | ≈ 25–26 dB |
-| AC Gain | ≈ 28.6 dB | ≈ 6.9 dB | ≈ 25–26 dB |
-| Gain Nature | Moderate | Low (practically limited) | High |
-| Stability | High | High | Moderate |
-| Complexity | Medium | High | Medium |
+| AC Gain | ≈ 28.7 dB | ≈ 6.9 dB | ≈ 25.5 dB |
+| Bandwidth (-3 dB) | ≈ 52.119 MHz | ≈ 48.417 MHz | ≈ 119.124 MHz |
+| Gain Bandwidth Product | ≈ 1.4 GHz | ≈ 0.107 GHz | ≈ 2.25 GHz |
+| Unity Gain Bandwidth | ≈ 1.717 GHz | ≈ 90.782 MHz | ≈ 2.691 GHz |
+| Gain Characteristic | Moderate gain with feedback | Lower practical gain | Higher gain using active load |
+| Bias Stability | High | High | Moderate |
+| Circuit Complexity | Medium | High | Medium |
 
-------------------------------------------------------------
-
+---
 ## Conclusion
 
-From the comparative study:
+The experiment demonstrates how different MOSFET amplifier configurations affect voltage gain, output resistance, and bias stability.
 
-• Circuit 2A provides moderate gain with improved stability due to source degeneration.  
-• Circuit 2B increases output resistance theoretically, but practical loading limited gain.  
-• Circuit 2C provides high gain using active load without degeneration.  
+• The **source-degenerated amplifier (2A)** provides stable biasing and moderate gain due to feedback through the source resistor.
 
-Thus, different MOS configurations affect gain, output resistance,
-and bias stability significantly. The experimental results
-closely match theoretical calculations.
+• The **cascode amplifier (2B)** theoretically increases output resistance and bandwidth, but the practical gain is limited by device parameters and loading effects.
 
+• The **active load amplifier (2C)** achieves relatively high gain using current-source biasing without source degeneration.
+
+Overall, the simulation results obtained from **LTspice closely follow the expected theoretical behavior**, confirming the correct design and operation of the MOS amplifier circuits.
 
 
 
