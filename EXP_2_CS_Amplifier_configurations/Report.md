@@ -341,7 +341,10 @@ Small-signal parameters obtained from the LTspice operating point:
 
 The gain of a **source-degenerated common source amplifier** with active load is given by:
 
-Av = - gm₁ / (1 + gm₁RS + RS/ro₁) × ([gm₁RSro₁ + RS + ro₁] ∥ ro₂)
+$$
+A_v = -\frac{g_{m1}}{1 + g_{m1}R_S + \frac{R_S}{r_{o1}}}
+\left[(g_{m1}R_S r_{o1} + R_S + r_{o1}) \parallel r_{o2}\right]
+$$
 
 | Denominator | Output Resistance Term | Voltage Gain | Gain (dB) |
 |-------------|-----------------------|--------------|-----------|
@@ -590,67 +593,75 @@ Given
 | Vov | 0.25 V |
 | gm | 1.6 mS |
 
-Output resistance
+## Theoretical Gain – Circuit 2B
 
-ro = 1 / (λ ID)
+The small-signal voltage gain of the cascode amplifier is
 
-Taking a typical value λ = 0.15 V⁻¹
+$$
+A_v =
+-\frac{g_{m1}}
+{1 + g_{m1} r_{o3} + \frac{r_{o3}}{r_{o1}}}
+\left(
+r_{o2} \parallel
+\left(
+g_{m1} r_{o1} r_{o3} + r_{o1} + r_{o3}
+\right)
+\right)
+$$
 
-ro = 1 / (0.15 × 200 µA)
+For the designed circuit:
 
-ro ≈ **33.3 kΩ**
+| Parameter | Expression | Value |
+|-----------|------------|------|
+| Drain current | $I_D$ | 200 µA |
+| Overdrive voltage | $V_{ov}$ | 0.25 V |
+| Transconductance | $g_m = \frac{2I_D}{V_{ov}}$ | 1.6 mS |
+| Channel modulation | $\lambda$ (TSMC 180nm) | 0.15 V⁻¹ |
+| Output resistance | $r_o = \frac{1}{\lambda I_D}$ | 33.3 kΩ |
 
 Thus
 
-ro1 ≈ ro2 ≈ ro3 ≈ **33.3 kΩ**
+$$
+r_{o1} \approx r_{o2} \approx r_{o3} \approx 33.3\,k\Omega
+$$
+### Gain Calculation
+
+| Step | Expression | Substitution | Result |
+|-----|------------|--------------|--------|
+| Denominator | \(1 + g_{m1}r_{o3} + \frac{r_{o3}}{r_{o1}}\) | \(1 + (1.6\,mS \times 33.3\,k\Omega) + \frac{33.3k}{33.3k}\) | **≈ 55.3** |
+| Inner Term | \(g_{m1} r_{o1} r_{o3} + r_{o1} + r_{o3}\) | \(1.6\,mS \times 33.3k \times 33.3k + 33.3k + 33.3k\) | **≈ 1.846 MΩ** |
+| Parallel Term | \(r_{o2} \parallel (1.846M)\) | \(33.3k \parallel 1.846M\) | **≈ 32.7 kΩ** |
+| Voltage Gain | \(A_v = \frac{g_{m1}}{55.3} \times 32.7k\) | \(\frac{1.6mS}{55.3} \times 32.7k\) | **≈ 0.94 V/V** |
+| Gain (dB) | \(A_v(dB) = 20\log_{10}(A_v)\) | \(20\log_{10}(0.94)\) | **≈ −0.5 dB** |
 
 ---
-### Gain Expression
 
-For the cascode stage with active load
+### Observation
 
-Av =
-− gm1 /
-(1 + gm1ro2 + ro2/ro1)
-×
-([gm1ro2ro1 + ro2 + ro1] ∥ ro3)
+The simplified small-signal theoretical gain is **≈ −0.5 dB**.  
+However, AC simulation shows **≈ 6.9 dB** because LTspice uses the **BSIM MOSFET model**, which includes mobility degradation, body effect, velocity saturation, and detailed channel-length modulation, increasing the effective output resistance and gain.
 
 ---
-### Calculation
 
-| Step | Result |
-|-----|-------|
-| Denominator | 1 + (1.6mS × 33.3k) + 1 = **55.3** |
-| Bracket term | (1.6mS × 33.3k × 33.3k + 66.6k) ∥ 33.3k |
-| | **≈ 32.7 kΩ** |
+### Observation
 
-Voltage gain
+The theoretical gain obtained using the simplified small-signal model is  
+approximately **−0.5 dB**.
 
-Av = (1.6mS / 55.3) × 32.7k
-
-Av ≈ **0.94 V/V**
-
-Gain in dB
-
-Av(dB) = 20 log(0.94)
-
-Av ≈ **−0.5 dB**
-
----
-### Reason for Difference Between Theory and Simulation
-
-The theoretical calculation uses a simplified small-signal MOS model where
-
-ro = 1 / (λID)
-
-However, LTspice uses the complete **BSIM MOSFET model**, which includes:
+However, the **AC simulation shows a gain of about 6.9 dB**.  
+This difference occurs because LTspice uses a **complete BSIM MOSFET model**  
+that includes effects such as:
 
 • mobility degradation  
 • body effect  
 • velocity saturation  
 • detailed channel-length modulation  
 
-These effects increase the effective output resistance of the cascode stage,resulting in a higher simulated gain (**≈ 6.9 dB**) compared to the simplified analytical value.
+These non-ideal effects increase the effective output resistance and lead to
+a higher simulated gain.
+
+
+
 
 ---
 ### EXP2 – CIRCUIT 2C – 
@@ -899,42 +910,56 @@ Small-signal AC analysis was performed to determine the **frequency response, mi
 | 25.55 dB | 10^(25.55/20) = **18.94** | 22.55 dB | **119.124 MHz** | 18.94 × 119.124 MHz = **2.25 GHz** | **≈ 2.691 GHz** |
 
 The AC response confirms the amplifier’s midband gain and bandwidth. The gain–bandwidth product and unity gain bandwidth were obtainedfrom the same frequency response plot.
+## Theoretical Gain – Circuit 2C (λ ≠ 0)
 
-## Theoretical Gain – Circuit 2C
+The gain expression considering channel-length modulation is
 
-The gain of a **common-source amplifier with diode-connected NMOS current source and PMOS active load** is
+## Theoretical Gain – Circuit 2C (λ ≠ 0)
 
-Av =
-- gm1 / (1 + gm1 ro3)
-× (ro1 || ro2)
+The small-signal voltage gain considering channel-length modulation is
 
-For **TSMC 180 nm CMOS technology**, the channel-length modulation parameter lies approximately in the range
-
-λ ≈ 0.1 – 0.2 V⁻¹
-
-Taking
-
-λ = **0.14 V⁻¹**
-
-### Small-Signal Parameters
-
-| Parameter | Calculation | Result |
-|-----------|-------------|--------|
-| gm1 | 2ID / Vov = (2 × 200µA) / 0.25 | **1.6 mS** |
-| ro | 1 / (λID) = 1 / (0.14 × 200µA) | **35.7 kΩ** |
-
-Since all MOSFETs carry the same current,
-ro1 ≈ ro2 ≈ ro3 ≈ **35.7 kΩ**
-
----
+$$
+A_v =
+-\frac{g_{m1}}
+{1 + g_{m1}\left(\frac{1}{g_{m3}} \parallel r_{o3}\right)
++ \frac{r_{o1}}{\left(\frac{1}{g_{m3}} \parallel r_{o3}\right)}}
+\left[
+r_{o2} \parallel
+\left(
+g_{m1} r_{o1}\left(\frac{1}{g_{m3}} \parallel r_{o3}\right)
++ r_{o1}
++ \left(\frac{1}{g_{m3}} \parallel r_{o3}\right)
+\right)
+\right]
+$$
+----
+  
 ### Gain Calculation
 
 | Step | Expression | Result |
-|------|------------|--------|
-| ro1 || ro2 | (35.7k || 35.7k) | **17.85 kΩ** |
-| Denominator | 1 + gm1ro3 = 1 + (1.6mS × 35.7k) | **58.12** |
-| Voltage Gain | (1.6mS / 58.12) × 17.85k | **≈ 20 V/V** |
-| Gain (dB) | 20 log10(20) | **≈ 26.02 dB** |
+|-----|------------|--------|
+| Drain Current | ID | 200 µA |
+| Overdrive Voltage | Vov | 0.25 V |
+| Transconductance | gm = 2ID / Vov | **1.6 mS** |
+| Channel modulation | λ (TSMC 180 nm) | **0.15 V⁻¹** |
+| Output resistance | ro = 1/(λID) | **33.3 kΩ** |
+| Parallel term | (1/gm3 ∥ ro3) | **613 Ω** |
+| Denominator | 1 + gm1(613) + ro1/613 | **56.3** |
+| Inner term | gm1 ro1(613) + ro1 + 613 | **66.5 kΩ** |
+| Output resistance | ro2 ∥ 66.5k | **22.2 kΩ** |
+| Voltage Gain | Av = (1.6mS / 56.3) × 22.2k | **20.1 V/V** |
+| Gain in dB | 20 log10(20.1) | **≈ 26.06 dB** |
+
+---
+
+### Result
+
+| Quantity | Value |
+|---------|-------|
+| Voltage Gain | **20.1 V/V** |
+| Gain | **≈ 26.06 dB** |
+
+This closely matches the simulated AC gain (~25.5 dB).
 
 Thus the theoretical gain is approximately **26 dB**, which closely matches the gains obtained from
 
