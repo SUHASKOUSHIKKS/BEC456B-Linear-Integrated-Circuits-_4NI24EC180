@@ -446,7 +446,18 @@ Gain × Bandwidth analyse.
 - theoretical,practical gain almost same and matched 
 
 ---
+# Comparison of Common Source Amplifier Behaviour
 
+| Parameter | CS Amplifier (DC Design) | Transient Response | AC Without Load Capacitor | AC With Load Capacitor |
+|-----------|--------------------------|--------------------|----------------------------|------------------------|
+| Purpose | Biasing and operating point verification | Time-domain amplification | Frequency response of intrinsic amplifier | Study effect of external load capacitance |
+| Output Behavior | Fixed DC operating point | Amplified sinusoidal signal | Flat gain region at midband | Gain decreases at lower frequency |
+| Phase Relation | Not applicable | 180° phase shift | 180° phase shift | 180° phase shift |
+| Gain | Determined by gmRD | ≈ 10.43 dB | ≈ 10.43 dB | Reduced due to load capacitor |
+| Bandwidth | Not defined | Depends on circuit parasitics | Very high (limited by parasitic capacitances) | Reduced due to dominant pole introduced by CL |
+| Dominant Capacitances | None considered | Parasitic capacitances | Cgs, Cgd, Cdb | Cgs, Cgd, Cdb + External CL |
+| Main Observation | MOSFET operates in saturation | Signal amplification verified | High-frequency capability observed | Gain-bandwidth trade-off observed |
+---
 # Conclusion
 
 Common Source amplifier using NMOS in TSMC 180nm was successfully designed in LTspice under given constraints.
