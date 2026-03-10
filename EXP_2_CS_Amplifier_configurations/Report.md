@@ -916,23 +916,23 @@ The gain expression considering channel-length modulation is
 
 ## Theoretical Gain – Circuit 2C (λ ≠ 0)
 
-The small-signal voltage gain considering channel-length modulation is
+$$
+R_s = \left(\frac{1}{g_{m3}} \parallel r_{o3}\right)
+$$
+
+Then the small-signal gain of Circuit 2C (λ ≠ 0) is
 
 $$
 A_v =
 -\frac{g_{m1}}
-{1 + g_{m1}\left(\frac{1}{g_{m3}} \parallel r_{o3}\right)
-+ \frac{r_{o1}}{\left(\frac{1}{g_{m3}} \parallel r_{o3}\right)}}
+{1 + g_{m1}R_s + \frac{r_{o1}}{R_s}}
 \left[
 r_{o2} \parallel
 \left(
-g_{m1} r_{o1}\left(\frac{1}{g_{m3}} \parallel r_{o3}\right)
-+ r_{o1}
-+ \left(\frac{1}{g_{m3}} \parallel r_{o3}\right)
+g_{m1} r_{o1} R_s + r_{o1} + R_s
 \right)
 \right]
 $$
-----
   
 ### Gain Calculation
 
