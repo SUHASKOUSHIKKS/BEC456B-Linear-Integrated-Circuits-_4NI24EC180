@@ -910,9 +910,6 @@ Small-signal AC analysis was performed to determine the **frequency response, mi
 | 25.55 dB | 10^(25.55/20) = **18.94** | 22.55 dB | **119.124 MHz** | 18.94 × 119.124 MHz = **2.25 GHz** | **≈ 2.691 GHz** |
 
 The AC response confirms the amplifier’s midband gain and bandwidth. The gain–bandwidth product and unity gain bandwidth were obtainedfrom the same frequency response plot.
-## Theoretical Gain – Circuit 2C (λ ≠ 0)
-
-The gain expression considering channel-length modulation is
 
 ## Theoretical Gain – Circuit 2C (λ ≠ 0)
 
